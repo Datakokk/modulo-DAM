@@ -35,3 +35,16 @@ __pycache__/
 *.pyo
 .env
 .venv
+
+# Eclipse
+.metadata/
+*.log
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+bin/
+target/
+*.class
