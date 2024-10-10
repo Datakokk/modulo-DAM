@@ -1,0 +1,37 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.dbmdl
+*.jfm
+*.cache
+*.pdb
+*.obj
+bin/
+obj/
+*.dll
+*.exe
+
+# Android Studio
+.idea/
+.gradle/
+build/
+*.iml
+local.properties
+*.apk
+
+# React Native
+node_modules/
+npm-debug.log
+yarn-error.log
+expo/
+*.expo
+android/app/build/
+ios/Pods/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+.venv
