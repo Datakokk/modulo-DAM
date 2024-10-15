@@ -3,4 +3,6 @@
     <string name="actividad_1">Actividad 1</string>
     <string name="actividad_2">Actividad 2</string>
     <string name="actividad_3">Actividad 3</string>
+    <string name="est_s_en_el_activity_2">Estás en el activity 2</string>
+    <string name="est_s_en_el_activity_1">Estás en el activity 1</string>
 </resources>
