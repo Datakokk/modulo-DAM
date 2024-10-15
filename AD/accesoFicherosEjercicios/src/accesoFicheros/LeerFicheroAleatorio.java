@@ -25,11 +25,11 @@ public class LeerFicheroAleatorio {
 			String apellidoS = new String(apellido);
 			dep=file.readInt(); // Leemos el departamento
 			salario=file.readDouble(); // Leemos el sueldo (8 bytes)System.out.println("ID empleado: "+id+"- Apellido:"+apellidoS+"- Depto "+dep+"- Salario: "'+salario);
-			System.out.println("ID empleado: " + id + " - Apellido: " + apellidoS );
+			System.out.println("ID empleado: " + id + " - Apellido: " + apellidoS + "- Dpto " + dep + " - Salario: "+salario );
 			posicion=posicion+36;
 			if (file.getFilePointer()==file.length())break;
-			file.close();
 		 }
+		 file.close();
 	}
 
 }
