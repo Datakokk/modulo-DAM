@@ -1,0 +1,47 @@
+Public Class Form1
+    Private Sub TextBox1_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBox1.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            If TextBox1.Text = Nothing Then
+                MsgBox("introduce datos")
+                TextBox1.Focus()
+            Else
+                TextBox2.Focus()
+            End If
+
+        End If
+
+
+
+    End Sub
+
+    Private Sub TextBox2_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBox2.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            TextBox3.Focus()
+        End If
+    End Sub
+
+    Private Sub TextBox3_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBox3.KeyDown
+        Dim valor1 As Integer
+        Dim valor2 As Integer
+
+        If e.KeyCode = Keys.Enter Then
+            Select Case Val(TextBox2.Text)
+                Case 1
+                    TextBox4.Text = "0%"
+                    valor1 = Val(TextBox2.Text) * Val(TextBox3.Text)
+                    TextBox5.Text = valor1
+
+                Case 2, 3
+                    TextBox4.Text = "3%"
+                    valor1 = Val(TextBox2.Text) * Val(TextBox3.Text)
+                    valor2 = (3 * valor1) / 100
+                    TextBox5.Text = valor1 - valor2
+
+                Case 4 To 7
+                    TextBox4.Text = "7%"
+                Case Is > 7
+                    TextBox4.Text = "15%"
+            End Select
+        End If
+    End Sub
+End Class
