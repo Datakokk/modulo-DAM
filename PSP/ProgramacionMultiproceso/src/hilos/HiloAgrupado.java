@@ -24,7 +24,7 @@ public class HiloAgrupado extends Thread {
 		h2.start();
 		h3.start();
 		
-		System.out.println("El número de hilos activos " + grupo.activeCount());
+		System.out.println("El número de hilos activos antes del interrupt " + grupo.activeCount());
 		
 		try {
 			Thread.sleep(1000);// Esperamos 1 segundo para esperar que todos los hilos inicien su ejecución
@@ -41,6 +41,7 @@ public class HiloAgrupado extends Thread {
 		h3.join();
 		
 		
+		System.out.println("Tres hilos creados...");
+		System.out.println("Hilos activos: " + Thread.currentThread().activeCount());
 	}
-
 }
