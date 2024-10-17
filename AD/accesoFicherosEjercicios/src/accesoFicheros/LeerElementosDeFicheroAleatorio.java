@@ -28,7 +28,10 @@ public class LeerElementosDeFicheroAleatorio {
 			   
 			   file.seek(posicion);
 			   id=file.readInt();
-			   for (int i=0;i<apellido.length;i++)apellido[i]=file.readChar();String apellidoS=new String(apellido);dep=file.readInt();
+			   for (int i=0;i<apellido.length;i++)
+				   apellido[i]=file.readChar();
+			   String apellidoS=new String(apellido);
+			   dep=file.readInt();
 			   salario=file.readDouble();
 			   System.out.println("ID empleado: "+id+"- Apellido: "+apellidoS+"- Depto "+dep +" - Salario: "+salario);
 			   System.out.println();
