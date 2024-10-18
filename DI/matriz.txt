@@ -1,0 +1,29 @@
+Public Class Form1
+    Dim tbnumeros(4) As Integer
+    Public x As Integer = 0
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        For i = 0 To 4
+            tbnumeros(i) = InputBox("dame numero", i)
+        Next
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        For i = 0 To 4
+            TextBox1.Text = TextBox1.Text & tbnumeros(i) & vbCrLf
+        Next
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        If x > 4 Then
+            x = 0
+        Else
+            TextBox2.Text = x
+            TextBox3.Text = tbnumeros(x)
+            x = x + 1
+        End If
+
+
+    End Sub
+End Class
