@@ -5,10 +5,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/EditTextNombreArchivo"
+        android:hint="Escribe el contenido del archivo"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/EditTextContenidoArchivo"
+        android:hint="Escribe el nombre del archivo"
+        tools:ignore="MissingConstraints" />
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Estás en el activity 4"
+        android:id="@+id/button_Crear"
+        android:text="Mostrar archivos"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_Mostrar"
+        android:text="Mostrar archivos"/>
+    <TextView
+        android:id="@+id/textViewArchivos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mostrar los archivos"
         android:textSize="24sp"
         android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
