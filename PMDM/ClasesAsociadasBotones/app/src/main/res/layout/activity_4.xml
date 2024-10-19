@@ -1,44 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/EditTextNombreArchivo"
-        android:hint="Escribe el contenido del archivo"
-        tools:ignore="MissingConstraints" />
+        android:hint="Escribe el nombre del archivo"
+        tools:ignore="MissingConstraints"
+        android:minHeight="48dp"
+        android:padding="12dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/EditTextContenidoArchivo"
-        android:hint="Escribe el nombre del archivo"
-        tools:ignore="MissingConstraints" />
+        android:hint="Escribe el contenido del archivo"
+        tools:ignore="MissingConstraints"
+        android:minHeight="48dp"
+        android:padding="12dp"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button_Crear"
-        android:text="Mostrar archivos"
+        android:id="@+id/button_Escribir"
+        android:text="Escribir archivos"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button_Mostrar"
-        android:text="Mostrar archivos"/>
+        android:text="Mostrar archivos"
+        tools:ignore="MissingConstraints" />
     <TextView
         android:id="@+id/textViewArchivos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mostrar los archivos"
-        android:textSize="24sp"
         android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

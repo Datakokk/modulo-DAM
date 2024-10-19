@@ -21,7 +21,7 @@ public class Activity4 extends AppCompatActivity {
 
     private EditText editTextNombreArchivo;
     private EditText editTextContenidoArchivo;
-    private Button buttonEscribirARchivo;
+    private Button buttonEscribirArchivo;
     private Button buttonMostrarArchivo;
     private TextView textViewContenidoArchivo;
 
@@ -30,13 +30,13 @@ public class Activity4 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_4);
 
-        buttonEscribirARchivo = findViewById(R.id.button_Escribir);// Crear este boton
+        buttonEscribirArchivo = findViewById(R.id.button_Escribir);
         buttonMostrarArchivo = findViewById(R.id.button_Mostrar);
-        editTextNombreArchivo = findViewById(R.id.editTextNomvreArchivo);// Buscar esto
-        editTextContenidoArchivo = findViewById(R.id.editTextContenidoArchivo);// Buscar esto
+        editTextNombreArchivo = findViewById(R.id.EditTextNombreArchivo);// Buscar esto EditTextNombreArchivo
+        editTextContenidoArchivo = findViewById(R.id.EditTextContenidoArchivo);// Buscar esto
 
         buttonMostrarArchivo.setOnClickListener(v->{
-            String contenido = editTextContenidoArchivo.getText().toString();
+            String nombre_archivo = editTextNombreArchivo.getText().toString();
             if(nombre_archivo.isEmpty()){
                 Toast.makeText(this, "Por favor introduce el nombre", Toast.LENGTH_LONG).show();
             }else{
@@ -44,11 +44,11 @@ public class Activity4 extends AppCompatActivity {
             }
         });
 
-        buttonCrearArchivo.setOnClickListener(v->{
+        buttonEscribirArchivo.setOnClickListener(v->{
             String nombre_archivo = editTextNombreArchivo.getText().toString();
             String contenido_archivo = editTextContenidoArchivo.getText().toString();
             if(nombre_archivo.isEmpty()){
-                Toast.makeText(this, "Por favor introudce datos", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Por favor introduce datos", Toast.LENGTH_LONG).show();
             }else{
                 escribirArchivo(nombre_archivo, contenido_archivo);
             }
@@ -70,7 +70,7 @@ public class Activity4 extends AppCompatActivity {
         {
             textViewContenidoArchivo.setText(contenido_archivo);
         }else{
-            Toast.makeText(this, "No hay ningun archivo en la mamoria", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "No hay ningun archivo en la mamoria", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -81,10 +81,12 @@ public class Activity4 extends AppCompatActivity {
             StringBuilder stringBuilder = new StringBuilder();
             int i;
             while((i=fis.read()) != -1){
-                stringBuilder.append((char), i);
+                stringBuilder.append((char) i);
             }
+            return stringBuilder.toString();
         }catch(IOException e){
-
+            e.printStackTrace();
+            return "No ha funcionado";
         }
         finally {
            if(fis != null){
@@ -97,11 +99,11 @@ public class Activity4 extends AppCompatActivity {
         }
     }
 
-    private void escribirArchivo(String nombre_archivo, String contenido){
+    private void escribirArchivo(String nombre_archivo, String texto){
         FileOutputStream fos = null;
         try{
             fos = openFileOutput(nombre_archivo, Context.MODE_PRIVATE);
-            Toast.makeText(this, "Cargado con exito");
+            Toast.makeText(this, "Cargado con exito", Toast.LENGTH_LONG).show();
             fos.write(texto.getBytes());
         }catch(IOException e){
             e.printStackTrace();
