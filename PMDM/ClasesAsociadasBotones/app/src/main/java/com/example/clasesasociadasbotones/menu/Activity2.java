@@ -17,13 +17,12 @@ public class Activity2 extends AppCompatActivity {
 
         EditText editTextName = findViewById(R.id.editTextName);
         Button buttonSaveName = findViewById(R.id.buttonSave);
+        Button buttonShowName = findViewById(R.id.showName);
         TextView textViewName = findViewById(R.id.TextViewName);
-
-
 
         SharedPreferences sharedPreferences = getSharedPreferences("MyPref", MODE_PRIVATE);
         String savedName = sharedPreferences.getString("name", "No none saved");
-        textViewName.setText(savedName);
+        //textViewName.setText(savedName);
 
         buttonSaveName.setOnClickListener( v -> {
             String newName = editTextName.getText().toString();
@@ -31,7 +30,13 @@ public class Activity2 extends AppCompatActivity {
                 editor.putString("name", newName);
                 editor.apply();
 
-                textViewName.setText(newName);
+                //textViewName.setText(newName);
+        });
+
+        buttonShowName.setOnClickListener( v -> {
+            String name = sharedPreferences.getString("name", "EL nombre no se ha encontrado");
+
+            textViewName.setText("El nombre es: " + name);
         });
     }
 }
