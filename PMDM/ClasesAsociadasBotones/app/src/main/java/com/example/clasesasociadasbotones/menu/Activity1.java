@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.view.*;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.example.clasesasociadasbotones.R;
 
@@ -16,10 +17,9 @@ public class Activity1 extends AppCompatActivity {
         setContentView(R.layout.activity_1);
 
         // Cambiar el color de la barra de estado solo para esta actividad
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(getResources().getColor(android.R.color.holo_blue_light)); // Uso del color predefinido
-        }
+            window.setStatusBarColor(ContextCompat.getColor(this, android.R.color.holo_blue_light)); // Uso del color predefinido
+
     }
 }
