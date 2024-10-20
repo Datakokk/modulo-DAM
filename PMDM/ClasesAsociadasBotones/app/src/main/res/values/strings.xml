@@ -5,4 +5,6 @@
     <string name="actividad_3">Actividad 3</string>
     <string name="est_s_en_el_activity_2">Estás en el activity 2</string>
     <string name="est_s_en_el_activity_1">Estás en el activity 1</string>
+    <string name="Almacenar_información" />
+    <string name="aqui_aparecera_el_nombre">Aqui aparecera el nombre</string>
 </resources>
