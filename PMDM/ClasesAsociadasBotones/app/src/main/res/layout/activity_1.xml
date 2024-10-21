@@ -26,7 +26,7 @@
         android:padding="12dp"/>
     <!-- Botón para insertar un estudiante (ID es autoincrement)-->
     <Button
-        android:id="@+id/insert_student"
+        android:id="@+id/btn_insert_student"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Insertar ID estudiante para actualizar o eliminar" />
