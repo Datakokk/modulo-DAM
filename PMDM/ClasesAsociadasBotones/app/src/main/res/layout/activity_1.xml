@@ -1,17 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <TextView
+
+    <!-- Campo para insertar el nombre -->
+    <EditText
+        android:id="@+id/et_student_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Introduce el nombre del estudiante"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:padding="12dp"/>
+    <!-- Campo para insertar la edad -->
+    <EditText
+        android:id="@+id/et_student_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Introduce la del estudiante"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:padding="12dp"/>
+    <!-- Botón para insertar un estudiante (ID es autoincrement)-->
+    <Button
+        android:id="@+id/insert_student"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/est_s_en_el_activity_1"
-        android:textSize="24sp"
-        android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:text="Insertar ID estudiante para actualizar o eliminar" />
+    <!-- Campo para Actualizar o eliminar un estudiante   -->
+    <EditText
+        android:id="@+id/et_student_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Id del estudiante (para actualizar o eliminar)"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:padding="12dp"/>
+    <!-- Botón para actualiza un estudiante por ID-->
+    <Button
+        android:id="@+id/btn_update_student"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Actualizar Estudiante"/>
+    <!-- Botón para borrar un estudiante por ID-->
+    <Button
+        android:id="@+id/btn_delete_student"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Borrar Estudiante"/>
+    <!-- Botón para obtener un estudiante por ID-->
+    <Button
+        android:id="@+id/btn_get_student"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Obtener un  estudiante"/>
+
+    <!-- Botón para obtner todos los estudiantes por ID-->
+    <Button
+        android:id="@+id/btn_all_students"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Obtener todos los sstudiante"/>
+
+    <TextView
+        android:id="@+id/tv_info_student"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Informacion...."/>
+</LinearLayout>
