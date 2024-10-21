@@ -1,0 +1,18 @@
+<ListaPersonasMunicipio>
+  <DatosPersona>
+    <nombre>Vibeke</nombre>
+    <edad>23</edad>
+  </DatosPersona>
+  <DatosPersona>
+    <nombre>Anne</nombre>
+    <edad>25</edad>
+  </DatosPersona>
+  <DatosPersona>
+    <nombre>Anita</nombre>
+    <edad>34</edad>
+  </DatosPersona>
+  <DatosPersona>
+    <nombre>Else</nombre>
+    <edad>22</edad>
+  </DatosPersona>
+</ListaPersonasMunicipio>
