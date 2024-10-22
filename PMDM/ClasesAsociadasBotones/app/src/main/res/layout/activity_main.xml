@@ -9,7 +9,7 @@
         android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/actividad_1"
+        android:text="SQLlite"
         android:backgroundTint="@android:color/holo_blue_light"
         android:textColor="#000"/>
 
@@ -17,19 +17,19 @@
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/actividad_2" />
+        android:text="Shared Preference" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/actividad_3" />
+        android:text="Finish" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Actividad 4"
+        android:text="Ficheros"
         android:backgroundTint="@android:color/holo_blue_light"
         android:textColor="#000"/>
 
