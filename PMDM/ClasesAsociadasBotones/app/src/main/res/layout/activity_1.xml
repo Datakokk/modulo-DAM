@@ -20,7 +20,7 @@
         android:id="@+id/et_student_age"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Introduce la del estudiante"
+        android:hint="Introduce la edad del estudiante"
         android:inputType="number"
         android:minHeight="48dp"
         android:padding="12dp"/>
@@ -29,7 +29,7 @@
         android:id="@+id/btn_insert_student"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Insertar ID estudiante para actualizar o eliminar" />
+        android:text="Insertar ID" />
     <!-- Campo para Actualizar o eliminar un estudiante   -->
     <EditText
         android:id="@+id/et_student_id"
