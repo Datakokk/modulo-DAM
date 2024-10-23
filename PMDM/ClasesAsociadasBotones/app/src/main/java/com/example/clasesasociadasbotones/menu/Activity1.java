@@ -1,18 +1,17 @@
 package com.example.clasesasociadasbotones.menu;
 
 import android.database.Cursor;
-import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
 import android.view.*;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import com.example.clasesasociadasbotones.MainActivity;
 import com.example.clasesasociadasbotones.R;
 import com.example.clasesasociadasbotones.database.DatabaseHelper;
 
@@ -42,6 +41,15 @@ public class Activity1 extends AppCompatActivity {
         btnGetAll = findViewById(R.id.btn_all_students);
         btnDelete = findViewById(R.id.btn_delete_student);
         tvStudentInfo = findViewById(R.id.tv_info_student);
+        ImageView btnBack = findViewById(R.id.btn_back);
+
+        // Damos funcionalidad a la flecha de retorno
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish(); // Volver a la actividad anterior
+            }
+        });
 
         //Inicializamos la base de datos
         dbHelper = new DatabaseHelper(this);
