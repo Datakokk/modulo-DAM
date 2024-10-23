@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.view.*;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,16 +26,27 @@ public class Activity4 extends AppCompatActivity {
     private Button buttonEscribirArchivo;
     private Button buttonMostrarArchivo;
     private TextView textViewContenidoArchivo;
+    private ImageView btnBack;
 
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_4);
 
+        // Inicializamos las variables
         buttonEscribirArchivo = findViewById(R.id.button_Escribir);
         buttonMostrarArchivo = findViewById(R.id.button_Mostrar);
         editTextNombreArchivo = findViewById(R.id.EditTextNombreArchivo);// Buscar esto EditTextNombreArchivo
         editTextContenidoArchivo = findViewById(R.id.EditTextContenidoArchivo);// Buscar esto
+        btnBack = findViewById(R.id.btn_back);
+
+        // Damos funcionalidad a la flecha de regreso
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         buttonMostrarArchivo.setOnClickListener(v->{
             String nombre_archivo = editTextNombreArchivo.getText().toString();
