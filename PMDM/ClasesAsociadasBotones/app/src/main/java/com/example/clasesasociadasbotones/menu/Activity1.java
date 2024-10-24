@@ -26,7 +26,7 @@ public class Activity1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_1);
 
-        // Cambiar el color de la barra de estado solo para esta actividad
+        // Cambiar el color de la barra de estado solo para esta actividad+
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(ContextCompat.getColor(this, android.R.color.holo_blue_light)); // Uso del color predefinido
@@ -62,15 +62,18 @@ public class Activity1 extends AppCompatActivity {
                 int age = Integer.parseInt(etStudentAge.getText().toString());
                 boolean IsInserted = dbHelper.insertStudent(name, age);
 
-                if(IsInserted){
+                if (IsInserted) {
                     Toast.makeText(Activity1.this, "Estudiante insertado", Toast.LENGTH_SHORT).show();
-                } else{
+                } else {
                     Toast.makeText(Activity1.this, "Error al insertar estudiante", Toast.LENGTH_SHORT).show();
                 }
+                etStudentAge.setText("");
+                etStudentName.setText("");
             }
         });
 
-        btnUpdate.setOnClickListener(new View.OnClickListener() {
+        //Actualizar un studiante
+        btnUpdate.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 int id = Integer.parseInt(etStudentId.getText().toString());
@@ -83,9 +86,11 @@ public class Activity1 extends AppCompatActivity {
                 } else {
                     Toast.makeText(getApplicationContext(), "No se actulizado el estudiante", Toast.LENGTH_SHORT).show();
                 }
+                etStudentId.setText("");
             }
         });
 
+        //Eliminar un estudiante
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,9 +102,11 @@ public class Activity1 extends AppCompatActivity {
                 } else{
                     Toast.makeText(Activity1.this, "Error al eliminar al estudiante", Toast.LENGTH_LONG).show();
                 }
+                etStudentId.setText("");
             }
         });
 
+        // Obtener un estudiante
         btnGet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,9 +121,11 @@ public class Activity1 extends AppCompatActivity {
                 } else{
                     Toast.makeText(getApplicationContext(), "Estudiante no encontrado", Toast.LENGTH_LONG).show();
                 }
+                etStudentId.setText("");
             }
         });
 
+        // Obtener todos los estudiantes
         btnGetAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
