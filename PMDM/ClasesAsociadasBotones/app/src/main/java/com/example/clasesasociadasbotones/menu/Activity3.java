@@ -2,7 +2,6 @@ package com.example.clasesasociadasbotones.menu;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;

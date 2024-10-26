@@ -1,12 +1,8 @@
 package com.example.clasesasociadasbotones;
 
-import static android.content.ContentValues.TAG;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -54,9 +50,16 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        // Botón 6
+        Button button6 = findViewById(R.id.button6);
+        button6.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, Activity6.class);
+            startActivity(intent);
+        });
+
     }
 
-    @Override
+   /* @Override
     protected void onPause(){
         super.onPause();
         Toast.makeText(MainActivity.this, "Pausando la aplicación", Toast.LENGTH_LONG).show();
@@ -66,6 +69,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume(){
         super.onResume();
         Toast.makeText(MainActivity.this, "Reiniciando la aplicación", Toast.LENGTH_LONG).show();
-    }
+    }*/
 
 }

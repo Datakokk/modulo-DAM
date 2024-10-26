@@ -22,7 +22,7 @@ public class Activity1 extends AppCompatActivity {
     TextView tvStudentInfo;
     DatabaseHelper dbHelper;
 
-    protected void onCreate(Bundle savedInstanceState){
+        protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_1);
 
