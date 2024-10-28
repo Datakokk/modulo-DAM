@@ -1,6 +1,8 @@
 package accesoFicherosEjercicios;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 /**
  * @param arg
