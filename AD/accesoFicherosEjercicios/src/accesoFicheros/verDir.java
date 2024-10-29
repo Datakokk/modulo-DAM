@@ -7,7 +7,6 @@ public class verDir {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("Fichero del directorio actual");
-		File f = new File("NUEVO)
 	}
 
 }
