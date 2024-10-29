@@ -2,12 +2,15 @@ package com.example.clasesasociadasbotones.menu;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.example.clasesasociadasbotones.R;
 
@@ -36,6 +39,11 @@ public class Activity5 extends AppCompatActivity {
         botonComprobar.setOnClickListener(v -> {
             findViewStudentsByText("Student");
           });
+
+        // Cambiar el color de la barra de estado solo para esta actividad
+        Window window = getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(ContextCompat.getColor(this, android.R.color.holo_blue_light)); // Uso del color predefinido
     }
 
     private void findViewStudentsByText(String studentText){

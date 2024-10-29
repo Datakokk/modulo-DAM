@@ -37,13 +37,19 @@
         android:id="@+id/button5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TXT"/>
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:text="TXT"
+        android:textColor="#000"/>
 
     <Button
         android:id="@+id/button6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cronometro"
-        android:backgroundTint="@android:color/holo_blue_light"
-        android:textColor="#000"/>
+        android:text="Cronometro"/>
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Conversor de unidaddes"/>
 </LinearLayout>
