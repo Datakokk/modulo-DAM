@@ -23,7 +23,9 @@ public class LeerDatos {
 				System.out.println("Name: " + nombre + "   age: "+ edad);
 			}
 		}
-		catch(IOException io) {}
+		catch(IOException io) {
+			System.out.println("Alcanzado el final del archivo");
+		}
 		
 		dataIS.close();
 	}
