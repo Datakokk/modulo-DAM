@@ -17,7 +17,7 @@ public class SimuladorTransferencias {
 		
 		Thread h1 = new Thread(new HiloTransferencia(c1, c4, "Hilo 1"));
 		Thread h2 = new Thread(new HiloTransferencia(c2, c3, "Hilo 2"));
-		Thread h3 = new Thread(new HiloTransferencia(c3, c2 "Hilo 3"));
+		Thread h3 = new Thread(new HiloTransferencia(c3, c2, "Hilo 3"));
 		Thread h4 = new Thread(new HiloTransferencia(c4, c1, "Hilo 4"));
 		
 		h1.start();
