@@ -28,6 +28,7 @@
         <activity android:name=".menu.Activity5"/>
         <activity android:name=".menu.Activity6"/>
         <activity android:name=".menu.Activity7"/>
+        <activity android:name=".menu.Activity8"/>
     </application>
 
 </manifest>

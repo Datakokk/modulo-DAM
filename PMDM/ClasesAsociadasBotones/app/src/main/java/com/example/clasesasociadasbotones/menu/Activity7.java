@@ -22,8 +22,6 @@ public class Activity7 extends AppCompatActivity {
         Button btn_celsiusToFahrenheit = findViewById(R.id.btn_celsius_to_Fahrenheit);
         EditText et_metersToKm = findViewById(R.id.et_input_meters);
         EditText et_celsiudToFahrenheit = findViewById(R.id.et_input_celsius);
-
-        //Inicializamos la variable
         ImageView btnBack = findViewById(R.id.btn_back);
 
         // Damos funcionalidad a la flecha de retorno

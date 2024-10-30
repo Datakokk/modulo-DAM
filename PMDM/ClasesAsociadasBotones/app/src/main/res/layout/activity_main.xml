@@ -52,4 +52,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Conversor de unidaddes"/>
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Notas rápidas"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:textColor="#000"
+        />
 </LinearLayout>
