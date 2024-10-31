@@ -70,6 +70,13 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, Activity8.class);
             startActivity(intent);
         });
+
+        // Button 9
+        Button button9 = findViewById(R.id.button9);
+        button9.setOnClickListener(v -> {
+            Intent intent = new Intent(this, Activity9.class);
+            startActivity(intent);
+        });
     }
 
    /* @Override
