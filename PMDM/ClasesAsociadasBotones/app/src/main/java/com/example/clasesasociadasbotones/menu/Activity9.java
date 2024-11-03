@@ -1,5 +1,6 @@
 package com.example.clasesasociadasbotones.menu;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -34,8 +35,10 @@ public class Activity9 extends AppCompatActivity {
             window.setStatusBarColor(ContextCompat.getColor(this, android.R.color.holo_blue_light)); // Uso del color predefinido
 
         // Inicializamos los elementos de la interfaz
-
-        ImageView btnBack = findViewById(R.id.btn_back);
+            EditText etInputID = findViewById(R.id.et_admin);
+            Button btnAdmin = findViewById(R.id.btn_admin);
+            Button btnUser = findViewById(R.id.btn_user);
+            ImageView btnBack = findViewById(R.id.btn_back);
 
         // Damos funcionalidad a la flecha de retorno
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -45,22 +48,25 @@ public class Activity9 extends AppCompatActivity {
             }
         });
 
-        //Inicializamos la base de datos
-        dbHelper = new DatabaseHelper(this);
+       // Ingresamos como administrador
+            btnAdmin.setOnClickListener(v -> {
+                if (!etInputID.getText().toString().equals("admin")){
+                    Toast.makeText(Activity9.this, "La contraseña no es correcta", Toast.LENGTH_LONG).show();
+                }else{
+                    Intent intent = new Intent(Activity9.this, ActivityAdmin.class);
+                    startActivity(intent);
+                }
+                etInputID.getText().clear();
+           });
 
-        // Insertar un estudiante
-
-
-        //Actualizar un studiante
-
-
-        //Eliminar un estudiante
-
-
-        // Obtener un estudiante
-
-
-        // Obtener todos los estudiantes
+        //Ingresamos como usuario
+            btnUser.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(Activity9.this, ActivityUser.class);
+                    startActivity(intent);
+                }
+            });
 
     }
 }

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_arrow_back_24"
+        android:layout_gravity="end"/>
+    <!-- ImageView muestra la imagen del juego -->
+    <ImageView
+        android:id="@+id/top_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/trivia" />
+
+    <!-- Campo para la pregunta-->
+   <TextView
+       android:id="@+id/tv_show_questions"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="Pregunta"
+       android:textSize="18sp"
+       android:paddingBottom="16dp"/>
+
+    <!-- Botónes con la opciones de respuesta -->
+    <!-- Botón 1 -->
+    <Button
+        android:id="@+id/btn_answer1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Opción 1" />
+
+    <!-- Botón 2 -->
+    <Button
+        android:id="@+id/btn_answer2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Opción 2" />
+
+    <!-- Botón 3 -->
+    <Button
+        android:id="@+id/btn_answer3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Opción 3" />
+
+    <!-- Puntuacion -->
+    <TextView
+        android:id="@+id/tv_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Puntuacion: 0"
+        android:padding="16dp"
+        android:textSize="16sp"
+        />
+
+    <!-- Botón para reiniciar el juego-->
+    <Button
+        android:id="@+id/btn_reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reiniciar"
+        android:paddingTop="16dp"
+        android:layout_gravity="center"
+        />
+
+</LinearLayout>

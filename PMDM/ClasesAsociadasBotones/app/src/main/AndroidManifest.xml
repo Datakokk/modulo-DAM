@@ -30,6 +30,8 @@
         <activity android:name=".menu.Activity7"/>
         <activity android:name=".menu.Activity8"/>
         <activity android:name=".menu.Activity9"/>
+        <activity android:name=".menu.ActivityAdmin"/>
+        <activity android:name=".menu.ActivityUser"/> 
     </application>
 
 </manifest>

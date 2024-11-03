@@ -12,69 +12,36 @@
         android:src="@drawable/baseline_arrow_back_24"
         android:layout_gravity="end"
         android:padding="16dp"/>
-
-    <!-- Campo para insertar el nombre -->
+    <!-- ImageView muestra la imagen del juego -->
+    <ImageView
+        android:id="@+id/top_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/trivia" />
+    <!-- Campo para ingresar el id del administrador -->
     <EditText
-        android:id="@+id/et_student_name"
+        android:id="@+id/et_admin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Introduce el nombre del estudiante"
+        android:hint="Introduce su Id de administrador"
         android:inputType="text"
         android:minHeight="48dp"
         android:padding="12dp"/>
-    <!-- Campo para insertar la edad -->
-    <EditText
-        android:id="@+id/et_student_age"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Introduce la edad del estudiante"
-        android:inputType="number"
-        android:minHeight="48dp"
-        android:padding="12dp"/>
-    <!-- Botón para insertar un estudiante (ID es autoincrement)-->
+
+    <!-- Botón para ingresar como administrador-->
     <Button
-        android:id="@+id/btn_insert_student"
+        android:id="@+id/btn_admin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Insertar Estudiante" />
-    <!-- Campo para Actualizar o eliminar un estudiante   -->
-    <EditText
-        android:id="@+id/et_student_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Id del estudiante (para actualizar o eliminar)"
-        android:inputType="number"
-        android:minHeight="48dp"
-        android:padding="12dp"/>
+        android:text="Ingresar como Administrador" />
+
     <!-- Botón para actualiza un estudiante por ID-->
     <Button
-        android:id="@+id/btn_update_student"
+        android:id="@+id/btn_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Actualizar Estudiante"/>
+        android:text="Ingresar como Usuario del juego"/>
     <!-- Botón para borrar un estudiante por ID-->
-    <Button
-        android:id="@+id/btn_delete_student"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Borrar Estudiante"/>
-    <!-- Botón para obtener un estudiante por ID-->
-    <Button
-        android:id="@+id/btn_get_student"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Obtener un  Estudiante"/>
 
-    <!-- Botón para obtner todos los estudiantes por ID-->
-    <Button
-        android:id="@+id/btn_all_students"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Obtener todos los Estudiante"/>
-
-    <TextView
-        android:id="@+id/tv_info_student"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Informacion...."/>
 </LinearLayout>
