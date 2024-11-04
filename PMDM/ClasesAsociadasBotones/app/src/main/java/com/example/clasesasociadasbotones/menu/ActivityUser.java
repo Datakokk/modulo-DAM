@@ -53,7 +53,7 @@ public class ActivityUser extends AppCompatActivity {
                 }
             });
 
-       // Botones de opciones de respuesta
+       // Botones de opciones de respuesta con tres formas de enfoque
             btnAnswer1.setOnClickListener(this::checkAnswer);
             btnAnswer2.setOnClickListener(new View.OnClickListener() {
                 @Override
