@@ -8,5 +8,6 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/tarde/repositorios/source/opt/alumno/modulo-DAM/AD/accesoFicherosEjercicios/xstream-1.4.20.jar"/>
 	<classpathentry kind="lib" path="C:/Users/tarde/repositorios/source/opt/alumno/modulo-DAM/AD/accesoFicherosEjercicios/xpp3_min-1.1.4c.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tarde/repositorios/source/opt/alumno/modulo-DAM/AD/accesoFicherosEjercicios/gson-2.11.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
