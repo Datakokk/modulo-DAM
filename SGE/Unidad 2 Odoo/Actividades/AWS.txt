@@ -1,0 +1,8 @@
+https://www.awsacademy.com/vforcesite/LMS_Login
+
+https://awsacademy.instructure.com/courses/96014/modules/items/8865215
+
+
+https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#Instances:instanceState=running
+
+Pass Canvas
