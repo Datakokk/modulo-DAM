@@ -1,0 +1,47 @@
+Public Class Form1
+    Dim tbparking(4, 4) As Boolean
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+        TextBox1.Clear()
+
+        For i = 0 To 4
+            For x = 0 To 4
+                If tbparking(x, i) = False Then
+                    TextBox1.Text = TextBox1.Text & i & "      " & x & vbCrLf
+
+                End If
+            Next
+        Next
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim c As Integer
+        Dim p As Integer
+
+        c = CInt(TextBox2.Text)
+        p = CInt(TextBox3.Text)
+
+
+        If tbparking(c, p) = True Then
+            MsgBox("error, ya ocupada")
+        Else
+            tbparking(c, p) = True
+        End If
+    End Sub
+
+Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim c As Integer
+        Dim p As Integer
+
+        c = CInt(TextBox2.Text)
+        p = CInt(TextBox3.Text)
+
+
+        If tbparking(c, p) = False Then
+            MsgBox("error, no ocupada")
+        Else
+            tbparking(c, p) = False
+        End If
+    End Sub
+
+End Class

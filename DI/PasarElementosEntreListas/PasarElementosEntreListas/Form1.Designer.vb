@@ -62,7 +62,7 @@ Partial Class Form1
         '
         'btnDerecha
         '
-        Me.btnDerecha.Image = Global.PasarElementosEntreListas.My.Resources.Resources.derecha
+        Me.btnDerecha.Enabled = False
         Me.btnDerecha.ImageAlign = System.Drawing.ContentAlignment.TopRight
         Me.btnDerecha.Location = New System.Drawing.Point(363, 51)
         Me.btnDerecha.Name = "btnDerecha"
@@ -73,6 +73,7 @@ Partial Class Form1
         '
         'btnIzq
         '
+        Me.btnIzq.Enabled = False
         Me.btnIzq.Location = New System.Drawing.Point(363, 123)
         Me.btnIzq.Name = "btnIzq"
         Me.btnIzq.Size = New System.Drawing.Size(75, 23)
@@ -82,11 +83,12 @@ Partial Class Form1
         '
         'btnAbajo
         '
+        Me.btnAbajo.Enabled = False
         Me.btnAbajo.Location = New System.Drawing.Point(363, 192)
         Me.btnAbajo.Name = "btnAbajo"
         Me.btnAbajo.Size = New System.Drawing.Size(75, 23)
         Me.btnAbajo.TabIndex = 5
-        Me.btnAbajo.Text = "Button3"
+        Me.btnAbajo.Text = "abajo"
         Me.btnAbajo.UseVisualStyleBackColor = True
         '
         'lblPrimeraLista
