@@ -1,0 +1,26 @@
+Public Class Form1
+
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+        For i = 0 To ListBox1.Items.Count - 1
+            If ListBox1.SelectedIndex <> -1 Then
+                ListBox2.Items.RemoveAt(ListBox1.SelectedIndex)
+                ListBox1.Items.RemoveAt(ListBox1.SelectedIndex)
+
+            End If
+        Next
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim index As Integer
+        index = ListBox1.FindString(TextBox1.Text)
+        If index <> -1 Then
+            MsgBox("si esta en posición" & index)
+        Else
+            MsgBox("no está")
+        End If
+    End Sub
+
+
+End Class
