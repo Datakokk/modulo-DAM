@@ -10,7 +10,7 @@ public class LanzaProcesoEscribeEntrada {
 
     public static void main(String[] args) {
         // Definimos el comando para Linux (ya no usamos 'wsl')
-        String[] comando = {""};
+        String[] comando = {"nslookup"};
         ProcessBuilder pb = new ProcessBuilder(comando);
 
         try {
@@ -39,12 +39,7 @@ public class LanzaProcesoEscribeEntrada {
                     oswp.write(linea + "\n");
                     oswp.flush(); // Nos aseguramos de que todo el texto se haya enviado al proceso
 
-                } catch (IOException e) {
-                    System.err.println("Error al enviar la entrada al proceso");
-                    e.printStackTrace();
-                }
-
-                try (
+                } try (
                     // BufferedReader para leer la salida estándar del proceso (stdout)
                     BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()))) {
 
