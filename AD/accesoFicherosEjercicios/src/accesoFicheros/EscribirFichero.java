@@ -7,7 +7,7 @@ public class EscribirFichero {
 		// TODO Auto-generated method stub
 		File fichero = new File(path+"datosGrabados.txt");
 		FileWriter fich = new FileWriter(fichero);
-		String cadenaGrabada = "Este es el contenido que voy a grabar";
+		String cadenaGrabada = "Alumno: Carlos Calvo, 2-DAM";
 //		fich.write(cadenaGrabada);  // Versión con String
 		char[] cad = cadenaGrabada.toCharArray();
 		for (int i=0; i<cad.length; i++)
