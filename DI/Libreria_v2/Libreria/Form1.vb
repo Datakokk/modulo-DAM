@@ -5,6 +5,7 @@
         Public autor As String
         Public tema As String
         Public numPagin As String
+        Public portada As String
         Public formato1 As String
         Public formato2 As String
         Public formato3 As String
@@ -21,7 +22,9 @@
             libros(num).autor = txtAutor.Text
             libros(num).tema = cbTema.SelectedItem
             libros(num).numPagin = txtPaginas.Text
-
+            Dim ruta As String = Application.StartupPath & "\imagenes\aventura.jpg" & libros(num).portada
+            MessageBox.Show(Application.StartupPath & "\imagenes\aventura.jpg")
+            PictureBox1.Image = Image.FromFile(ruta)
             'Tratamos el checkbox
             If chbCartone.Checked Then
                 libros(num).formato1 = True
@@ -106,7 +109,9 @@
             chbTapaDura.Checked = False
             rbNovedad.Checked = True
             rbReedición.Checked = False
+            ComboBoxPortada.SelectedItem = " "
             cbTema.SelectedIndex = -1
+            PictureBox1.Image = Nothing
 
             ListBoxLibros.Items.RemoveAt(ListBoxLibros.SelectedIndex())
             num -= 1
@@ -118,6 +123,7 @@
         txtTitulo.Text = ""
         txtAutor.Text = ""
         txtPaginas.Text = ""
+        ComboBoxPortada.SelectedItem = ""
         chbCartone.Checked = False
         chbRústica.Checked = False
         chbTapaDura.Checked = False
@@ -128,5 +134,9 @@
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         Close()
+    End Sub
+
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+
     End Sub
 End Class

@@ -44,8 +44,12 @@ Partial Class Form1
         Me.ListBoxLibros = New System.Windows.Forms.ListBox()
         Me.lblLibros = New System.Windows.Forms.Label()
         Me.cbTema = New System.Windows.Forms.ComboBox()
+        Me.lblPortada = New System.Windows.Forms.Label()
+        Me.ComboBoxPortada = New System.Windows.Forms.ComboBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBoxFormato.SuspendLayout()
         Me.GroupBoxEstado.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblLibreria
@@ -54,9 +58,9 @@ Partial Class Form1
         Me.lblLibreria.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblLibreria.Location = New System.Drawing.Point(138, 37)
         Me.lblLibreria.Name = "lblLibreria"
-        Me.lblLibreria.Size = New System.Drawing.Size(112, 31)
+        Me.lblLibreria.Size = New System.Drawing.Size(136, 31)
         Me.lblLibreria.TabIndex = 0
-        Me.lblLibreria.Text = "Librería"
+        Me.lblLibreria.Text = "Librería 2"
         '
         'lblTitulo
         '
@@ -96,7 +100,7 @@ Partial Class Form1
         '
         'btnNuevo
         '
-        Me.btnNuevo.Location = New System.Drawing.Point(66, 318)
+        Me.btnNuevo.Location = New System.Drawing.Point(66, 334)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(75, 23)
         Me.btnNuevo.TabIndex = 5
@@ -105,7 +109,7 @@ Partial Class Form1
         '
         'btnAltas
         '
-        Me.btnAltas.Location = New System.Drawing.Point(210, 318)
+        Me.btnAltas.Location = New System.Drawing.Point(210, 334)
         Me.btnAltas.Name = "btnAltas"
         Me.btnAltas.Size = New System.Drawing.Size(75, 23)
         Me.btnAltas.TabIndex = 6
@@ -114,7 +118,7 @@ Partial Class Form1
         '
         'btnBajas
         '
-        Me.btnBajas.Location = New System.Drawing.Point(66, 371)
+        Me.btnBajas.Location = New System.Drawing.Point(66, 390)
         Me.btnBajas.Name = "btnBajas"
         Me.btnBajas.Size = New System.Drawing.Size(75, 23)
         Me.btnBajas.TabIndex = 7
@@ -123,7 +127,7 @@ Partial Class Form1
         '
         'btnSalir
         '
-        Me.btnSalir.Location = New System.Drawing.Point(210, 371)
+        Me.btnSalir.Location = New System.Drawing.Point(210, 390)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(75, 23)
         Me.btnSalir.TabIndex = 8
@@ -134,21 +138,21 @@ Partial Class Form1
         '
         Me.txtTitulo.Location = New System.Drawing.Point(200, 111)
         Me.txtTitulo.Name = "txtTitulo"
-        Me.txtTitulo.Size = New System.Drawing.Size(176, 20)
+        Me.txtTitulo.Size = New System.Drawing.Size(155, 20)
         Me.txtTitulo.TabIndex = 9
         '
         'txtAutor
         '
         Me.txtAutor.Location = New System.Drawing.Point(200, 156)
         Me.txtAutor.Name = "txtAutor"
-        Me.txtAutor.Size = New System.Drawing.Size(176, 20)
+        Me.txtAutor.Size = New System.Drawing.Size(155, 20)
         Me.txtAutor.TabIndex = 10
         '
         'txtPaginas
         '
         Me.txtPaginas.Location = New System.Drawing.Point(200, 247)
         Me.txtPaginas.Name = "txtPaginas"
-        Me.txtPaginas.Size = New System.Drawing.Size(176, 20)
+        Me.txtPaginas.Size = New System.Drawing.Size(155, 20)
         Me.txtPaginas.TabIndex = 11
         '
         'GroupBoxFormato
@@ -249,14 +253,45 @@ Partial Class Form1
         Me.cbTema.Items.AddRange(New Object() {"Aventuras", "Biografía", "Ciencia", "Ciencia Ficción", "Cine", "Economía", "Gastronomía", "Historia", "Informática", "Medicina", "Misterio", "Naturaleza", "Policiaco", "Política", "Romántica", "Teatro", "Terror"})
         Me.cbTema.Location = New System.Drawing.Point(200, 202)
         Me.cbTema.Name = "cbTema"
-        Me.cbTema.Size = New System.Drawing.Size(176, 21)
+        Me.cbTema.Size = New System.Drawing.Size(155, 21)
         Me.cbTema.TabIndex = 16
+        '
+        'lblPortada
+        '
+        Me.lblPortada.AutoSize = True
+        Me.lblPortada.Location = New System.Drawing.Point(63, 295)
+        Me.lblPortada.Name = "lblPortada"
+        Me.lblPortada.Size = New System.Drawing.Size(59, 13)
+        Me.lblPortada.TabIndex = 17
+        Me.lblPortada.Text = "PORTADA"
+        '
+        'ComboBoxPortada
+        '
+        Me.ComboBoxPortada.FormattingEnabled = True
+        Me.ComboBoxPortada.Items.AddRange(New Object() {"Aventuras", "Biografía", "Ciencia"})
+        Me.ComboBoxPortada.Location = New System.Drawing.Point(200, 287)
+        Me.ComboBoxPortada.Name = "ComboBoxPortada"
+        Me.ComboBoxPortada.Size = New System.Drawing.Size(155, 21)
+        Me.ComboBoxPortada.TabIndex = 18
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.PictureBox1.Location = New System.Drawing.Point(396, 156)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(100, 103)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 19
+        Me.PictureBox1.TabStop = False
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.ComboBoxPortada)
+        Me.Controls.Add(Me.lblPortada)
         Me.Controls.Add(Me.cbTema)
         Me.Controls.Add(Me.lblLibros)
         Me.Controls.Add(Me.ListBoxLibros)
@@ -280,6 +315,7 @@ Partial Class Form1
         Me.GroupBoxFormato.PerformLayout()
         Me.GroupBoxEstado.ResumeLayout(False)
         Me.GroupBoxEstado.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -307,4 +343,7 @@ Partial Class Form1
     Friend WithEvents chbCartone As CheckBox
     Friend WithEvents rbReedición As RadioButton
     Friend WithEvents rbNovedad As RadioButton
+    Friend WithEvents lblPortada As Label
+    Friend WithEvents ComboBoxPortada As ComboBox
+    Friend WithEvents PictureBox1 As PictureBox
 End Class
