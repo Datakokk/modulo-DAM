@@ -22,9 +22,12 @@
             libros(num).autor = txtAutor.Text
             libros(num).tema = cbTema.SelectedItem
             libros(num).numPagin = txtPaginas.Text
-            Dim ruta As String = Application.StartupPath & "\imagenes\aventura.jpg" & libros(num).portada
-            MessageBox.Show(Application.StartupPath & "\imagenes\aventura.jpg")
-            PictureBox1.Image = Image.FromFile(ruta)
+            Dim ruta As String = Application.StartupPath & "\imagenes\" & ComboBoxPortada.Text & ".jpg"
+            Try
+                PictureBox1.Image = Image.FromFile(ruta)
+            Catch ex As Exception
+                MessageBox.Show("No se pudo cargar la imagen. Verifica que el archivo exista en la ruta especificada: " & ruta, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
             'Tratamos el checkbox
             If chbCartone.Checked Then
                 libros(num).formato1 = True
@@ -53,6 +56,106 @@
 
             ListBoxLibros.Items.Add(libros(num).titulo)
             num += 1
+
+        Else
+            MessageBox.Show("Maxmo de libros introducidos")
+        End If
+    End Sub
+
+    Private Sub ListBoxLibros_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBoxLibros.SelectedIndexChanged
+        If ListBoxLibros.SelectedIndex <> -1 Then
+            num = ListBoxLibros.SelectedIndex
+
+            txtTitulo.Text = libros(num).titulo
+            txtAutor.Text = libros(num).autor
+            cbTema.SelectedItem = libros(num).tema
+            txtPaginas.Text = libros(num).numPagin
+            ComboBoxPortada.SelectedItem = libros(num).portada
+            ' Mostrar imagen asociada
+            Dim ruta As String = Application.StartupPath & "\imagenes\" & libros(num).portada
+            ' Try
+            'PictureBox1.Image = Image.FromFile(ruta)
+            '  Catch ex As Exception
+            ' PictureBox1.Image = Nothing ' Si no encuentra la imagen, limpiar PictureBox
+            ' MessageBox.Show("No se pudo cargar la imagen: " & ruta, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ' End Try
+
+            If libros(num).formato1 Then
+                chbCartone.Checked = True
+            Else
+                chbCartone.Checked = False
+            End If
+            If libros(num).formato2 Then
+                chbRústica.Checked = True
+            Else
+                chbRústica.Checked = False
+            End If
+            If libros(num).formato1 Then
+                chbTapaDura.Checked = True
+            Else
+                chbTapaDura.Checked = False
+            End If
+
+            If libros(num).estado = "novedad" Then
+                rbNovedad.Checked = True
+            Else
+                rbReedición.Checked = True
+            End If
+        End If
+    End Sub
+
+    Private Sub btnBajas_Click(sender As Object, e As EventArgs) Handles btnBajas.Click
+        If ListBoxLibros.SelectedIndex <> -1 Then
+
+            For i = ListBoxLibros.SelectedIndex() To num - 1
+                If (Not IsNothing(libros(i + 1)) And i <> num) Then
+                    libros(i) = libros(i + 1)
+                End If
+            Next
+
+            txtTitulo.Text = ""
+            txtAutor.Text = ""
+            txtPaginas.Text = ""
+            chbCartone.Checked = False
+            chbRústica.Checked = False
+            chbTapaDura.Checked = False
+            rbNovedad.Checked = True
+            rbReedición.Checked = False
+            ComboBoxPortada.SelectedItem = " "
+            cbTema.SelectedIndex = -1
+            PictureBox1.Image = Nothing
+
+            ListBoxLibros.Items.RemoveAt(ListBoxLibros.SelectedIndex())
+            num -= 1
+        End If
+
+    End Sub
+
+    Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
+        txtTitulo.Text = ""
+        txtAutor.Text = ""
+        txtPaginas.Text = ""
+        ComboBoxPortada.SelectedItem = ""
+        chbCartone.Checked = False
+        chbRústica.Checked = False
+        chbTapaDura.Checked = False
+        rbNovedad.Checked = True
+        rbReedición.Checked = False
+        cbTema.SelectedIndex = -1
+    End Sub
+
+    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+        Close()
+    End Sub
+
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+
+    End Sub
+
+    Private Sub ComboBoxPortada_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxPortada.SelectedIndexChanged
+
+    End Sub
+End Class
 
         Else
             MessageBox.Show("Maxmo de libros introducidos")
