@@ -31,9 +31,9 @@ Partial Class Form1
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.HsScrollBar_VsScrollBar.My.Resources.Resources.foto2
-        Me.PictureBox1.Location = New System.Drawing.Point(276, 85)
+        Me.PictureBox1.Location = New System.Drawing.Point(254, 90)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(139, 90)
+        Me.PictureBox1.Size = New System.Drawing.Size(169, 108)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
@@ -41,24 +41,24 @@ Partial Class Form1
         'HScrollBar1
         '
         Me.HScrollBar1.LargeChange = 5
-        Me.HScrollBar1.Location = New System.Drawing.Point(276, 264)
-        Me.HScrollBar1.Maximum = 400
-        Me.HScrollBar1.Minimum = 127
+        Me.HScrollBar1.Location = New System.Drawing.Point(254, 259)
+        Me.HScrollBar1.Maximum = 300
+        Me.HScrollBar1.Minimum = 169
         Me.HScrollBar1.Name = "HScrollBar1"
         Me.HScrollBar1.Size = New System.Drawing.Size(268, 17)
         Me.HScrollBar1.TabIndex = 1
-        Me.HScrollBar1.Value = 127
+        Me.HScrollBar1.Value = 169
         '
         'VScrollBar1
         '
         Me.VScrollBar1.LargeChange = 5
-        Me.VScrollBar1.Location = New System.Drawing.Point(554, 119)
-        Me.VScrollBar1.Maximum = 90
-        Me.VScrollBar1.Minimum = 10
+        Me.VScrollBar1.Location = New System.Drawing.Point(554, 90)
+        Me.VScrollBar1.Maximum = 180
+        Me.VScrollBar1.Minimum = 108
         Me.VScrollBar1.Name = "VScrollBar1"
-        Me.VScrollBar1.Size = New System.Drawing.Size(17, 143)
+        Me.VScrollBar1.Size = New System.Drawing.Size(17, 172)
         Me.VScrollBar1.TabIndex = 2
-        Me.VScrollBar1.Value = 10
+        Me.VScrollBar1.Value = 108
         '
         'Form1
         '

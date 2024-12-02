@@ -268,7 +268,11 @@ Partial Class Form1
         'ComboBoxPortada
         '
         Me.ComboBoxPortada.FormattingEnabled = True
+<<<<<<< HEAD
         Me.ComboBoxPortada.Items.AddRange(New Object() {"aventura", "biografia", "ciencia"})
+=======
+        Me.ComboBoxPortada.Items.AddRange(New Object() {"Aventura", "Biografia", "Ciencia"})
+>>>>>>> 03b45cc (DI: Se ha finalizado HsScrollBar_VsScrollBar al igual que Libreria)
         Me.ComboBoxPortada.Location = New System.Drawing.Point(200, 287)
         Me.ComboBoxPortada.Name = "ComboBoxPortada"
         Me.ComboBoxPortada.Size = New System.Drawing.Size(155, 21)

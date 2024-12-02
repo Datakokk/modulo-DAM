@@ -16,43 +16,26 @@
 
     Private Sub btnAltas_Click(sender As Object, e As EventArgs) Handles btnAltas.Click
         If Me.ListBoxLibros.Items.Count - 1 < 4 Then
-            num = Me.ListBoxLibros.Items.Count
 
             libros(num).titulo = txtTitulo.Text
             libros(num).autor = txtAutor.Text
-            libros(num).tema = cbTema.SelectedItem
+            libros(num).tema = cbTema.Text
             libros(num).numPagin = txtPaginas.Text
-            Dim ruta As String = Application.StartupPath & "\imagenes\" & ComboBoxPortada.Text & ".jpg"
+            libros(num).portada = ComboBoxPortada.Text
+            Dim ruta As String = Application.StartupPath & "\imagenes\" & ComboBoxPortada.Text & ".png"
             Try
                 PictureBox1.Image = Image.FromFile(ruta)
             Catch ex As Exception
                 MessageBox.Show("No se pudo cargar la imagen. Verifica que el archivo exista en la ruta especificada: " & ruta, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
-            'Tratamos el checkbox
-            If chbCartone.Checked Then
-                libros(num).formato1 = True
-            Else
-                libros(num).formato1 = False
-            End If
+            ' Tratamos los CheckBoxes
+            libros(num).formato1 = chbCartone.Checked
+            libros(num).formato2 = chbRústica.Checked
+            libros(num).formato3 = chbTapaDura.Checked
 
-            If chbRústica.Checked Then
-                libros(num).formato2 = True
-            Else
-                libros(num).formato2 = False
-            End If
+            ' Tratamos el RadioButton
+            libros(num).estado = If(rbNovedad.Checked, "novedad", "reedicion")
 
-            If chbTapaDura.Checked Then
-                libros(num).formato3 = True
-            Else
-                libros(num).formato3 = False
-            End If
-
-            ' Tratamos el radioButton
-            If rbNovedad.Checked Then
-                libros(num).estado = "novedad"
-            Else
-                libros(num).estado = "reedicion"
-            End If
 
             ListBoxLibros.Items.Add(libros(num).titulo)
             num += 1
@@ -72,29 +55,17 @@
             txtPaginas.Text = libros(num).numPagin
             ComboBoxPortada.SelectedItem = libros(num).portada
             ' Mostrar imagen asociada
-            Dim ruta As String = Application.StartupPath & "\imagenes\" & libros(num).portada
-            ' Try
-            'PictureBox1.Image = Image.FromFile(ruta)
-            '  Catch ex As Exception
-            ' PictureBox1.Image = Nothing ' Si no encuentra la imagen, limpiar PictureBox
-            ' MessageBox.Show("No se pudo cargar la imagen: " & ruta, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            ' End Try
+            Dim ruta As String = Application.StartupPath & "\imagenes\" & libros(num).portada & ".png"
+            Try
+                PictureBox1.Image = Image.FromFile(ruta)
+            Catch ex As Exception
+                PictureBox1.Image = Nothing ' Si no encuentra la imagen, limpiar PictureBox
+                MessageBox.Show("No se pudo cargar la imagen: " & ruta, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
 
-            If libros(num).formato1 Then
-                chbCartone.Checked = True
-            Else
-                chbCartone.Checked = False
-            End If
-            If libros(num).formato2 Then
-                chbRústica.Checked = True
-            Else
-                chbRústica.Checked = False
-            End If
-            If libros(num).formato1 Then
-                chbTapaDura.Checked = True
-            Else
-                chbTapaDura.Checked = False
-            End If
+            chbCartone.Checked = libros(num).formato1
+            chbRústica.Checked = libros(num).formato2
+            chbTapaDura.Checked = libros(num).formato3
 
             If libros(num).estado = "novedad" Then
                 rbNovedad.Checked = True
@@ -113,17 +84,7 @@
                 End If
             Next
 
-            txtTitulo.Text = ""
-            txtAutor.Text = ""
-            txtPaginas.Text = ""
-            chbCartone.Checked = False
-            chbRústica.Checked = False
-            chbTapaDura.Checked = False
-            rbNovedad.Checked = True
-            rbReedición.Checked = False
-            ComboBoxPortada.SelectedItem = " "
-            cbTema.SelectedIndex = -1
-            PictureBox1.Image = Nothing
+            LimpiarCampos()
 
             ListBoxLibros.Items.RemoveAt(ListBoxLibros.SelectedIndex())
             num -= 1
@@ -132,22 +93,14 @@
     End Sub
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
-        txtTitulo.Text = ""
-        txtAutor.Text = ""
-        txtPaginas.Text = ""
-        ComboBoxPortada.SelectedItem = ""
-        chbCartone.Checked = False
-        chbRústica.Checked = False
-        chbTapaDura.Checked = False
-        rbNovedad.Checked = True
-        rbReedición.Checked = False
-        cbTema.SelectedIndex = -1
+        LimpiarCampos()
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         Close()
     End Sub
 
+<<<<<<< HEAD
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
 
     End Sub
@@ -158,3 +111,21 @@
 End Class
 
 
+=======
+    Private Sub LimpiarCampos()
+        txtTitulo.Clear()
+        txtAutor.Clear()
+        txtPaginas.Clear()
+        ComboBoxPortada.SelectedIndex = -1
+        chbCartone.Checked = False
+        chbRústica.Checked = False
+        chbTapaDura.Checked = False
+        rbNovedad.Checked = True
+        rbReedición.Checked = False
+        cbTema.SelectedIndex = -1
+        PictureBox1.Image = Nothing
+    End Sub
+
+End Class
+
+>>>>>>> 03b45cc (DI: Se ha finalizado HsScrollBar_VsScrollBar al igual que Libreria)
