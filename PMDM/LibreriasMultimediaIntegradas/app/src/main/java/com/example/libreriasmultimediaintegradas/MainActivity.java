@@ -30,5 +30,11 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, Activity2.class);
             startActivity(intent);
         });
+        // Button 3
+        Button btnExoplayer = findViewById(R.id.btn_exoplayer);
+        btnExoplayer.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, Activity3.class);
+            startActivity(intent);
+        });
     }
 }
