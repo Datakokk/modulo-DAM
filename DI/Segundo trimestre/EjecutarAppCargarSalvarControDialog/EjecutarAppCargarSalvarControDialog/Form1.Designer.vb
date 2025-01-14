@@ -48,7 +48,7 @@ Partial Class Form1
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(572, 166)
+        Me.Button2.Location = New System.Drawing.Point(572, 241)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 2
@@ -57,11 +57,11 @@ Partial Class Form1
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(572, 256)
+        Me.Button3.Location = New System.Drawing.Point(572, 163)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 23)
         Me.Button3.TabIndex = 3
-        Me.Button3.Text = "Ver"
+        Me.Button3.Text = "Ver/Cargar"
         Me.Button3.UseVisualStyleBackColor = True
         '
         'OpenFileDialog1
