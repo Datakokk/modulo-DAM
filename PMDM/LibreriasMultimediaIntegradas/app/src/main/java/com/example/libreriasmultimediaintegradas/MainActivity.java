@@ -36,5 +36,12 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, Activity3.class);
             startActivity(intent);
         });
+
+        // Button 4
+        Button btnMediaRecorder = findViewById(R.id.btn_media_recorder);
+        btnMediaRecorder.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, Activity4.class);
+            startActivity(intent);
+        });
     }
 }
