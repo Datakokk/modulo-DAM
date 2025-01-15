@@ -8,64 +8,63 @@
 
     <!-- Botón Play -->
 
+    <!-- Botón Stop -->
 
+    <!-- Botón Aumentar Volumen -->
 
     <Button
         android:id="@+id/btn_play_audio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="65dp"
         android:layout_marginTop="104dp"
-        android:layout_marginEnd="3dp"
         android:text="Play"
         app:layout_constraintEnd_toStartOf="@id/btn_stop_audio"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Botón Stop -->
     <Button
         android:id="@+id/btn_stop_audio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginStart="96dp"
         android:text="Stop"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btn_play_audio"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/btn_play_audio" />
 
-    <!-- Botón Stop 1-->
+    <!-- Botón Disminuir Volumen -->
+
+    <!-- Botón Silenciar -->
     <Button
-        android:id="@+id/btn_stop_audio1"
+        android:id="@+id/btn_increase_volume"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="104dp"
-        android:text="Stoop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btn_play_audio"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="16dp"
+        android:text="Aumentar Volumen"
+        app:layout_constraintEnd_toStartOf="@id/btn_decrease_volume"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_play_audio" />
 
-    <!-- Botón Sto2p -->
     <Button
-        android:id="@+id/btn_stop_audio12"
+        android:id="@+id/btn_decrease_volume"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="104dp"
-        android:text="Stoqqqop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btn_play_audio"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:text="Disminuir Volumen"
+        app:layout_constraintStart_toEndOf="@id/btn_increase_volume"
+        app:layout_constraintTop_toBottomOf="@id/btn_stop_audio" />
 
-    <!-- Botón Sto3p -->
     <Button
-        android:id="@+id/btn_stop_audio123"
+        android:id="@+id/btn_mute_audio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="104dp"
-        android:text="Stoqqqop3"
+        android:layout_marginTop="20dp"
+        android:text="Silenciar Audio"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btn_play_audio"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_increase_volume" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

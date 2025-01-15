@@ -1,5 +1,6 @@
 package com.example.libreriasmultimediaintegradas;
 
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import java.net.URI;
 
 public class Activity1 extends AppCompatActivity {
     private MediaPlayer mediaPlayer;
+    private AudioManager audioManager;
     String audioUrl = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
 
     @Override
@@ -22,8 +24,12 @@ public class Activity1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_1);
 
+        audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
         Button playbut = findViewById(R.id.btn_play_audio);
         Button stopbut = findViewById(R.id.btn_stop_audio);
+        Button btnSilence = findViewById(R.id.btn_mute_audio);
+        Button btnIncrease = findViewById(R.id.btn_increase_volume);
+        Button btnDecrease = findViewById(R.id.btn_decrease_volume);
         Uri parseUri = Uri.parse(audioUrl);
         mediaPlayer = MediaPlayer.create(this, parseUri);
 
@@ -36,6 +42,16 @@ public class Activity1 extends AppCompatActivity {
 
         stopbut.setOnClickListener(v -> {
             mediaPlayer.stop();
+        });
+
+        btnIncrease.setOnClickListener(v -> {
+            audioManager.adjustVolume(AudioManager.ADJUST_RAISE, AudioManager.FLAG_SHOW_UI);
+        });
+        btnDecrease.setOnClickListener(v -> {
+            audioManager.adjustVolume(AudioManager.ADJUST_LOWER, AudioManager.FLAG_SHOW_UI);
+        });
+        btnSilence.setOnClickListener(v-> {
+            audioManager.adjustVolume(AudioManager.ADJUST_MUTE, AudioManager.FLAG_SHOW_UI);
         });
     }
 
