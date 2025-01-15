@@ -40,6 +40,8 @@ public class ClienteInteractivoUDP {
 		System.out.println("Recibo Nº de caracteres que son a ==> :" + numero);
 		
 		socketCliente.close();
+		
+		sc.close();
 	}
 
 }
