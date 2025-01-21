@@ -1,0 +1,58 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="incidencia_list">
+      <field name="name">Lista de incidencias</field>
+      <field name="model">soporte.incidencia</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="descripcion"/>
+          <field name="prioridad"/>
+          <field name="urgente"/>
+          <field name="cerrada"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="incidencia_action_window">
+      <field name="name">Lista de incidencias</field>
+      <field name="res_model">soporte.incicencia</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="soporte.action_server">
+      <field name="name">soporte server</field>
+      <field name="model_id" ref="model_soporte_soporte"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+
+    <menuitem name="soporte SGE" id="soporte.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Incidencia" id="soporte_incidencia" parent="soporte.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="Mostrar lista" id="soporte_incidencia_list" parent="soporte_incidencia"
+              action="incidencia_action_window"/>
+
+  </data>
+</odoo>
