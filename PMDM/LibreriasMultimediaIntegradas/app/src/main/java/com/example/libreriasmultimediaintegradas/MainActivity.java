@@ -43,5 +43,12 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, Activity4.class);
             startActivity(intent);
         });
+
+        // Button 9
+        Button btnLibAudioVideoImg = findViewById(R.id.btn_library_audio_video_image);
+        btnLibAudioVideoImg.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, Activity9.class);
+            startActivity(intent);
+        });
     }
 }

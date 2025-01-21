@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+    <Button
+        android:id="@+id/btn_start_stop_audio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Reproducir/Pausar Audio"/>
+
+    <Button
+        android:id="@+id/btn_start_stop_video"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Reproducir/Pausar Video" />
+
+    <Button
+        android:id="@+id/btn_start_stop_audi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Reproducir Efecto de Sonido" />
+
+    <Button
+        android:id="@+id/btn_show_hide_gif"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mostrar/Ocultar GIF" />
+</LinearLayout>
