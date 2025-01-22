@@ -30,11 +30,11 @@ Partial Class Form1
         Me.txtNombre = New System.Windows.Forms.TextBox()
         Me.txtSaldoInicial = New System.Windows.Forms.TextBox()
         Me.txtSaldoActual = New System.Windows.Forms.TextBox()
-        Me.btnIngresos = New System.Windows.Forms.Button()
         Me.btnPagos = New System.Windows.Forms.Button()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
+        Me.btnIngresos = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'lblNumeroCuenta
@@ -101,15 +101,6 @@ Partial Class Form1
         Me.txtSaldoActual.Size = New System.Drawing.Size(100, 20)
         Me.txtSaldoActual.TabIndex = 7
         '
-        'btnIngresos
-        '
-        Me.btnIngresos.Location = New System.Drawing.Point(183, 353)
-        Me.btnIngresos.Name = "btnIngresos"
-        Me.btnIngresos.Size = New System.Drawing.Size(75, 23)
-        Me.btnIngresos.TabIndex = 8
-        Me.btnIngresos.Text = "Ingresos"
-        Me.btnIngresos.UseVisualStyleBackColor = True
-        '
         'btnPagos
         '
         Me.btnPagos.Location = New System.Drawing.Point(308, 353)
@@ -146,6 +137,15 @@ Partial Class Form1
         Me.btnNuevo.Text = "Nuevo"
         Me.btnNuevo.UseVisualStyleBackColor = True
         '
+        'btnIngresos
+        '
+        Me.btnIngresos.Location = New System.Drawing.Point(183, 353)
+        Me.btnIngresos.Name = "btnIngresos"
+        Me.btnIngresos.Size = New System.Drawing.Size(75, 23)
+        Me.btnIngresos.TabIndex = 8
+        Me.btnIngresos.Text = "Ingresos"
+        Me.btnIngresos.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -179,9 +179,9 @@ Partial Class Form1
     Friend WithEvents txtNombre As TextBox
     Friend WithEvents txtSaldoInicial As TextBox
     Friend WithEvents txtSaldoActual As TextBox
-    Friend WithEvents btnIngresos As Button
     Friend WithEvents btnPagos As Button
     Friend WithEvents btnBuscar As Button
     Friend WithEvents btnSalir As Button
     Friend WithEvents btnNuevo As Button
+    Friend WithEvents btnIngresos As Button
 End Class
