@@ -7,9 +7,15 @@
       <field name="model">soporte.incidencia</field>
       <field name="arch" type="xml">
         <tree>
+          <field name="titulo"/>
           <field name="descripcion"/>
           <field name="prioridad"/>
           <field name="urgente"/>
+          <field name="archivos_adjuntos"/>
+          <field name="imagen"/>
+          <field name="fecha_creacion"/>
+          <field name="fecha_modificacion"/>
+          <field name="ubicacion"/>
           <field name="cerrada"/>
         </tree>
       </field>
@@ -20,7 +26,7 @@
 
     <record model="ir.actions.act_window" id="incidencia_action_window">
       <field name="name">Lista de incidencias</field>
-      <field name="res_model">soporte.incicencia</field>
+      <field name="res_model">soporte.incidencia</field>
       <field name="view_mode">tree,form</field>
     </record>
 
