@@ -27,19 +27,19 @@ Partial Class Form1
         Me.btnGestion = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
-        'lblTitutloBanco1
+        'lblTitutloBanco
         '
         Me.lblTitutloBanco1.AutoSize = True
         Me.lblTitutloBanco1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitutloBanco1.Location = New System.Drawing.Point(333, 71)
-        Me.lblTitutloBanco1.Name = "lblTitutloBanco1"
+        Me.lblTitutloBanco1.Name = "lblTitutloBanco"
         Me.lblTitutloBanco1.Size = New System.Drawing.Size(175, 17)
         Me.lblTitutloBanco1.TabIndex = 0
         Me.lblTitutloBanco1.Text = "Banco IES Vista Alegre"
         '
         'btnOperacion
         '
-        Me.btnOperacion.Location = New System.Drawing.Point(285, 162)
+        Me.btnOperacion.Location = New System.Drawing.Point(272, 162)
         Me.btnOperacion.Name = "btnOperacion"
         Me.btnOperacion.Size = New System.Drawing.Size(75, 23)
         Me.btnOperacion.TabIndex = 1
@@ -48,7 +48,7 @@ Partial Class Form1
         '
         'btnGestion
         '
-        Me.btnGestion.Location = New System.Drawing.Point(501, 162)
+        Me.btnGestion.Location = New System.Drawing.Point(489, 162)
         Me.btnGestion.Name = "btnGestion"
         Me.btnGestion.Size = New System.Drawing.Size(75, 23)
         Me.btnGestion.TabIndex = 2

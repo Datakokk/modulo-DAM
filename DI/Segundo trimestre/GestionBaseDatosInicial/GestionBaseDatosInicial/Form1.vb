@@ -25,7 +25,13 @@ Public Class Form1
     End Sub
 
     Private Sub btnAlta_Click(sender As Object, e As EventArgs) Handles btnAlta.Click
-        Dim icomando = New OleDbCommand("INSERT INTO tbempresas(nombre,direccion,telefono) VALUES ('Fernando','general 3222', '89898')", oconexion)
+        'Dim icomando = New OleDbCommand("INSERT INTO tbempresas(nombre,direccion,telefono) VALUES ('Fernando','general 3222', '89898')", oconexion)'
+        Dim icomando = New OleDbCommand("INSERT INTO tbempresas(nombre,direccion,telefono) VALUES (@A,@B,@)", oconexion)
+        icomando.Parameters.AddWithValue(“@A”, txtNombre.Text)
+        icomando.Parameters.AddWithValue(“@B”, txtDireccion.Text)
+        icomando.Parameters.AddWithValue(“@C”, txtTelefono.Text)
+
+
         oconexion.Open()
         icomando.ExecuteNonQuery()
         oconexion.Close()

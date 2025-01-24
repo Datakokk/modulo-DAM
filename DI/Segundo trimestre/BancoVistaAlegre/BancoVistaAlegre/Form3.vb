@@ -63,8 +63,4 @@ Public Class Form3
         Close()
     End Sub
 
-    Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-        Me.Hide()
-        formulario1.Show()
-    End Sub
 End Class

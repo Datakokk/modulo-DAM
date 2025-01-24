@@ -120,9 +120,9 @@ Partial Class Form3
         Me.lblGestion.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblGestion.Location = New System.Drawing.Point(253, 91)
         Me.lblGestion.Name = "lblGestion"
-        Me.lblGestion.Size = New System.Drawing.Size(83, 17)
+        Me.lblGestion.Size = New System.Drawing.Size(64, 17)
         Me.lblGestion.TabIndex = 10
-        Me.lblGestion.Text = "Operación"
+        Me.lblGestion.Text = "Gestión"
         '
         'btnNuevo
         '
