@@ -15,7 +15,7 @@
           <field name="imagen"/>
           <field name="fecha_creacion"/>
           <field name="fecha_modificacion"/>
-          <field name="ubicacion"/>
+          <field name="ubicacion_id"/>
           <field name="cerrada"/>
         </tree>
       </field>
@@ -30,6 +30,11 @@
       <field name="view_mode">tree,form</field>
     </record>
 
+    <record model="ir.actions.act_window" id="ubicacion_action_window">
+      <field name="name">Lista de ubicaciones</field>
+      <field name="res_model">soporte.ubicacion</field>
+      <field name="view_mode">tree,form</field>
+    </record>
 
     <!-- server action to the one above -->
 <!--
@@ -54,11 +59,12 @@
     <!-- menu categories -->
 
     <menuitem name="Incidencia" id="soporte_incidencia" parent="soporte.menu_root"/>
-
+    <menuitem name="Ubicaciones" id="soporte_ubicaciones" parent="soporte.menu_root"/>
     <!-- actions -->
 
     <menuitem name="Mostrar lista" id="soporte_incidencia_list" parent="soporte_incidencia"
               action="incidencia_action_window"/>
-
+    <menuitem name="Mostrar lista" id="soporte_ubicaciones_list" parent="soporte_ubicaciones"
+              action="ubicacion_action_window"/>
   </data>
 </odoo>
