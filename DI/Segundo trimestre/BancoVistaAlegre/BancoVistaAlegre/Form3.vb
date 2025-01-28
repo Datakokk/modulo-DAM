@@ -59,8 +59,8 @@ Public Class Form3
         txtNumeroCuenta.Clear()
 
     End Sub
-    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-        Close()
+    Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+        Me.Hide()
+        formulario1.Show()
     End Sub
-
 End Class

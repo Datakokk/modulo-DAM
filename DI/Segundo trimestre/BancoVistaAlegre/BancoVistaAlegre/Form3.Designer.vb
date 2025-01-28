@@ -36,7 +36,6 @@ Partial Class Form3
         Me.btnIngresos = New System.Windows.Forms.Button()
         Me.btnPagos = New System.Windows.Forms.Button()
         Me.btnBuscar = New System.Windows.Forms.Button()
-        Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnVolver = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
@@ -120,13 +119,13 @@ Partial Class Form3
         Me.lblGestion.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblGestion.Location = New System.Drawing.Point(253, 91)
         Me.lblGestion.Name = "lblGestion"
-        Me.lblGestion.Size = New System.Drawing.Size(64, 17)
+        Me.lblGestion.Size = New System.Drawing.Size(83, 17)
         Me.lblGestion.TabIndex = 10
-        Me.lblGestion.Text = "Gestión"
+        Me.lblGestion.Text = "Operación"
         '
         'btnNuevo
         '
-        Me.btnNuevo.Location = New System.Drawing.Point(38, 362)
+        Me.btnNuevo.Location = New System.Drawing.Point(67, 362)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(75, 23)
         Me.btnNuevo.TabIndex = 13
@@ -135,7 +134,7 @@ Partial Class Form3
         '
         'btnIngresos
         '
-        Me.btnIngresos.Location = New System.Drawing.Point(147, 362)
+        Me.btnIngresos.Location = New System.Drawing.Point(177, 362)
         Me.btnIngresos.Name = "btnIngresos"
         Me.btnIngresos.Size = New System.Drawing.Size(75, 23)
         Me.btnIngresos.TabIndex = 14
@@ -144,7 +143,7 @@ Partial Class Form3
         '
         'btnPagos
         '
-        Me.btnPagos.Location = New System.Drawing.Point(256, 362)
+        Me.btnPagos.Location = New System.Drawing.Point(288, 362)
         Me.btnPagos.Name = "btnPagos"
         Me.btnPagos.Size = New System.Drawing.Size(75, 23)
         Me.btnPagos.TabIndex = 15
@@ -153,25 +152,16 @@ Partial Class Form3
         '
         'btnBuscar
         '
-        Me.btnBuscar.Location = New System.Drawing.Point(366, 362)
+        Me.btnBuscar.Location = New System.Drawing.Point(398, 362)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(75, 23)
         Me.btnBuscar.TabIndex = 16
         Me.btnBuscar.Text = "Buscar"
         Me.btnBuscar.UseVisualStyleBackColor = True
         '
-        'btnSalir
-        '
-        Me.btnSalir.Location = New System.Drawing.Point(469, 362)
-        Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(75, 23)
-        Me.btnSalir.TabIndex = 17
-        Me.btnSalir.Text = "Salir"
-        Me.btnSalir.UseVisualStyleBackColor = True
-        '
         'btnVolver
         '
-        Me.btnVolver.Location = New System.Drawing.Point(576, 362)
+        Me.btnVolver.Location = New System.Drawing.Point(513, 362)
         Me.btnVolver.Name = "btnVolver"
         Me.btnVolver.Size = New System.Drawing.Size(75, 23)
         Me.btnVolver.TabIndex = 18
@@ -184,7 +174,6 @@ Partial Class Form3
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.btnVolver)
-        Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.btnPagos)
         Me.Controls.Add(Me.btnIngresos)
@@ -220,6 +209,5 @@ Partial Class Form3
     Friend WithEvents btnIngresos As Button
     Friend WithEvents btnPagos As Button
     Friend WithEvents btnBuscar As Button
-    Friend WithEvents btnSalir As Button
     Friend WithEvents btnVolver As Button
 End Class
