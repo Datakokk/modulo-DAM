@@ -23,6 +23,11 @@ class incidencia(models.Model):
          default = 0,
          help = 'Establece un valor mayor o igual a 10 para que se considere urgente',
      )
+     @api.constrains('prioridad')
+     def _check_prioridad(self):
+         for record in self:
+             if record.prioridad > 10:
+                 raise ValidationError('Error en prioridad(@api.constrains): no puede ser mayor que 10 ')
 
      urgente = fields.Boolean(
          string='Urgente',
