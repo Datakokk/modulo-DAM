@@ -2,14 +2,14 @@
 {
     'name': "soporte",
 
-    'summary': "Modulo para le gestión de incidencias de SGE con Odoo",
+    'summary': """Módulo para la gestion de incidencias de SGE""",
 
     'description': """
-        Descripción del modulo para le gestión de incidencias de SGE
+        Módulo para la gestion de incidencias de SGE
     """,
 
-    'author': "Carlos Fernando",
-    'website': "https://www.yourcompany.com",
+    'author': "Carlos Izquierdo",
+    'website': "https://www.carlosig.es",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
@@ -30,6 +30,6 @@
     'demo': [
         'demo/demo.xml',
     ],
-    'application': True,
 }
+
 
