@@ -3,6 +3,7 @@ package io.github.some_example_name;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -11,7 +12,7 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
-public class GameScreen extends ApplicationAdapter {
+public class GameScreen implements Screen {
     private SpriteBatch batch;
     private TextureAtlas atlas;
     private float stateTime;
@@ -21,7 +22,7 @@ public class GameScreen extends ApplicationAdapter {
     private TextureRegion MarioStop;
 
     @Override
-    public void create() {
+    public void show() {
         batch = new SpriteBatch();
         atlas = new TextureAtlas(Gdx.files.internal("Mario_and_Enemies.pack"));
         TextureAtlas.AtlasRegion bigMarioRegion = atlas.findRegion("big_mario");
@@ -39,7 +40,7 @@ public class GameScreen extends ApplicationAdapter {
     }
 
     @Override
-    public void render() {
+    public void render(float delta) {
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
         handleInput();
         batch.begin();
@@ -71,6 +72,28 @@ public class GameScreen extends ApplicationAdapter {
             y -= 200 * Gdx.graphics.getDeltaTime();
             isMoving = true;
         }
+    }
+
+
+
+    @Override
+    public void resize(int width, int height) {
+
+    }
+
+    @Override
+    public void pause() {
+
+    }
+
+    @Override
+    public void resume() {
+
+    }
+
+    @Override
+    public void hide() {
+
     }
 
     @Override

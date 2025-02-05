@@ -1,6 +1,6 @@
 package io.github.some_example_name;
 
-import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Texture;
@@ -43,6 +43,7 @@ public class MainGame implements Screen {
 
             if(b_start_r.contains(x_in, y_in)){
                 System.out.println("Empieza el juego");
+                ((Game) Gdx .app.getApplicationListener()).setScreen(new GameScreen());
             } else if (b_settings_r.contains(x_in, y_in)) {
                 System.out.println("Congiguración");
             } else if (b_exit_r.contains(x_in, y_in)) {
