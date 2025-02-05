@@ -2,15 +2,14 @@ package io.github.some_example_name;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
-public class Main extends ApplicationAdapter {
+public class MainGame implements Screen {
     private SpriteBatch batch;
     private Texture button_settings;
     private Texture button_exit;
@@ -21,7 +20,7 @@ public class Main extends ApplicationAdapter {
     private Rectangle b_exit_r, b_start_r, b_settings_r;
 
     @Override
-    public void create() {
+    public void show() {
         batch = new SpriteBatch();
         background = new Texture("background.jpg");
         button_settings = new Texture("button_settings.png");
@@ -35,7 +34,7 @@ public class Main extends ApplicationAdapter {
     }
 
     @Override
-    public void render() {
+    public void render(float delta) {
 
         if(Gdx.input.justTouched()){
             float x_in = Gdx.input.getX();
@@ -57,6 +56,26 @@ public class Main extends ApplicationAdapter {
         batch.draw(button_settings, centerx, centery - button_start.getHeight());
         batch.draw(button_exit, centerx + 15, centery - (button_start.getHeight() * 2));
         batch.end();
+    }
+
+    @Override
+    public void resize(int width, int height) {
+
+    }
+
+    @Override
+    public void pause() {
+
+    }
+
+    @Override
+    public void resume() {
+
+    }
+
+    @Override
+    public void hide() {
+
     }
 
     @Override
