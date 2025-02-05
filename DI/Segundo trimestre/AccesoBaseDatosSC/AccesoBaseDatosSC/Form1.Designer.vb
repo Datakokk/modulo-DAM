@@ -32,11 +32,12 @@ Partial Class Form1
         Me.txtDireccion = New System.Windows.Forms.TextBox()
         Me.txtTelefono = New System.Windows.Forms.TextBox()
         Me.btnInsertar = New System.Windows.Forms.Button()
+        Me.btnEliminar = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnConectar
         '
-        Me.btnConectar.Location = New System.Drawing.Point(114, 342)
+        Me.btnConectar.Location = New System.Drawing.Point(97, 342)
         Me.btnConectar.Name = "btnConectar"
         Me.btnConectar.Size = New System.Drawing.Size(75, 23)
         Me.btnConectar.TabIndex = 0
@@ -45,7 +46,7 @@ Partial Class Form1
         '
         'btnVer
         '
-        Me.btnVer.Location = New System.Drawing.Point(248, 342)
+        Me.btnVer.Location = New System.Drawing.Point(219, 342)
         Me.btnVer.Name = "btnVer"
         Me.btnVer.Size = New System.Drawing.Size(75, 23)
         Me.btnVer.TabIndex = 1
@@ -110,18 +111,28 @@ Partial Class Form1
         '
         'btnInsertar
         '
-        Me.btnInsertar.Location = New System.Drawing.Point(426, 341)
+        Me.btnInsertar.Location = New System.Drawing.Point(340, 342)
         Me.btnInsertar.Name = "btnInsertar"
         Me.btnInsertar.Size = New System.Drawing.Size(75, 23)
         Me.btnInsertar.TabIndex = 10
         Me.btnInsertar.Text = "Insertar"
         Me.btnInsertar.UseVisualStyleBackColor = True
         '
+        'btnEliminar
+        '
+        Me.btnEliminar.Location = New System.Drawing.Point(624, 342)
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.Size = New System.Drawing.Size(75, 23)
+        Me.btnEliminar.TabIndex = 11
+        Me.btnEliminar.Text = "Eliminar"
+        Me.btnEliminar.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnInsertar)
         Me.Controls.Add(Me.txtTelefono)
         Me.Controls.Add(Me.txtDireccion)
@@ -149,4 +160,5 @@ Partial Class Form1
     Friend WithEvents txtDireccion As TextBox
     Friend WithEvents txtTelefono As TextBox
     Friend WithEvents btnInsertar As Button
+    Friend WithEvents btnEliminar As Button
 End Class

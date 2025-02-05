@@ -27,13 +27,7 @@ Public Class Form1
     End Sub
 
     Private Sub btnVer_Click(sender As Object, e As EventArgs) Handles btnVer.Click
-        Dim ofila As DataRow
-        lstNombre.Items.Clear()
-
-        For Each ofila In odataset.Tables("tb1").Rows
-            lstNombre.Items.Add(ofila.Item("Nombre"))
-        Next
-
+        CargarNombres()
     End Sub
 
     Private Sub btnInsertar_Click(sender As Object, e As EventArgs) Handles btnInsertar.Click
@@ -64,11 +58,54 @@ Public Class Form1
                 odataadapter.Update(odataset, "tb1")
                 oconexion.Close()
 
+                txtNombre.Clear()
+                txtDireccion.Clear()
+                txtTelefono.Clear()
+
                 MessageBox.Show("Se ha insertado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                CargarNombres()
             Catch ex As Exception
                 MessageBox.Show("Error al insertar los datos: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
         End If
     End Sub
 
+    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+        Dim fila As DataRow
+        For Each fila In odataset.Tables("tb1").Rows
+            If fila("nombre") = Me.txtNombre.Text Then
+                fila.Delete()
+                oconexion.Open()
+                odataadapter.Update(odataset, "tb1")
+                oconexion.Close()
+                Exit For
+            End If
+        Next
+
+        Try
+            oconexion.Open()
+            odataadapter.Update(odataset, "tb1")
+            oconexion.Close()
+
+            txtNombre.Clear()
+            txtDireccion.Clear()
+            txtTelefono.Clear()
+
+            MessageBox.Show("Se ha eliminado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            CargarNombres()
+        Catch ex As Exception
+            MessageBox.Show("Error al eliminar el usuario: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub CargarNombres()
+        Dim ofila As DataRow
+        lstNombre.Items.Clear()
+
+        For Each ofila In odataset.Tables("tb1").Rows
+            lstNombre.Items.Add(ofila.Item("Nombre"))
+        Next
+    End Sub
 End Class
