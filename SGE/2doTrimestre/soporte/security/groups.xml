@@ -12,4 +12,12 @@
         <field name="comment">Usuarios básicos para soporte</field>
         <field name="users" eval="[(4, ref('base.group_user'))]"/>
     </record>
+
+    <record model="res.groups" id="soporte_admins">
+        <field name="name">Usuarios administradores</field>
+        <field name="category_id" ref="soporte_categoria_incidencia"/>
+        <field name="comment">Usuarios administradores para soporte</field>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+        <field name="implied_ids" eval="[(4, ref('soporte_users'))]"/>
+    </record>
 </odoo>
