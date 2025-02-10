@@ -1,0 +1,81 @@
+<odoo>
+    <data>
+
+        <!-- Datos para el modelo soporte.incidencia -->
+        <record id="incidencia1" model="soporte.incidencia">
+            <field name="titulo">Incidencia 1</field>
+            <field name="descripcion">El ordenador del aula no funciona</field>
+            <field name="prioridad">0</field>
+            <field name="ubicacion_id" ref="ubicacion2"/>
+            <field name="cerrada">0</field>
+            <!-- La ruta debe partir de la carpeta donde se encuentre el módulo -->
+            <field name="foto" file="soporte/static/imgs/ratonRoto.webp" type="base64"/>
+            <field name="fecha_creacion" eval="(datetime.now()).strftime('%Y-%m-%d')"/>
+            <field name="fecha_modificacion" eval="(datetime.now()).strftime('%Y-%m-%d')"/>
+        </record>
+
+        <record id="incidencia2" model="soporte.incidencia">
+            <field name="titulo">Incidencia 2</field>
+            <field name="descripcion">El teclado no funciona</field>
+            <field name="prioridad">0</field>
+            <field name="ubicacion_id" ref="ubicacion1"/>
+            <field name="cerrada">0</field>
+            <!-- La ruta debe partir de la carpeta donde se encuentre el módulo -->
+            <field name="foto" file="soporte/static/imgs/tecladoRoto.png" type="base64"/>
+            <field name="fecha_creacion" eval="(datetime.now()).strftime('%Y-%m-%d')"/>
+            <field name="fecha_modificacion" eval="(datetime.now()).strftime('%Y-%m-%d')"/>
+            <field name="tecnico_ids" eval="[(6, 0, [ref('tecnico1'), ref('tecnico2')])]"/>
+            <!--
+                6 sobreescribe los valores existentes en la relación muchos a muchos.
+                4 añade valores sin eliminar los existentes.
+            -->
+        </record>
+
+        <!-- Datos para el modelo soporte.tecnico -->
+        <record id="tecnico1" model="soporte.tecnico">
+            <field name="nombre">Antonio</field>
+        </record>
+
+        <!-- Datos para el modelo soporte.ubicacion -->
+        <record id="ubicacion1" model="soporte.ubicacion">
+            <field name="nombre">Ubicacion 1</field>
+            <field name="pabellon">Pabellon Paris</field>
+            <field name="planta">Planta baja</field>
+        </record>
+
+        <record id="ubicacion2" model="soporte.ubicacion">
+            <field name="nombre">Ubicacion 2</field>
+            <field name="pabellon">Pabellon Roma</field>
+            <field name="planta">Planta primera</field>
+        </record>
+
+        <!-- Datos comentados (soporte.soporte) -->
+        <!--
+        <record id="object0" model="soporte.soporte">
+            <field name="name">Object 0</field>
+            <field name="value">0</field>
+        </record>
+
+        <record id="object1" model="soporte.soporte">
+            <field name="name">Object 1</field>
+            <field name="value">10</field>
+        </record>
+
+        <record id="object2" model="soporte.soporte">
+            <field name="name">Object 2</field>
+            <field name="value">20</field>
+        </record>
+
+        <record id="object3" model="soporte.soporte">
+            <field name="name">Object 3</field>
+            <field name="value">30</field>
+        </record>
+
+        <record id="object4" model="soporte.soporte">
+            <field name="name">Object 4</field>
+            <field name="value">40</field>
+        </record>
+        -->
+
+    </data>
+</odoo>

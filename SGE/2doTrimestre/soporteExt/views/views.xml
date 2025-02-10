@@ -1,0 +1,70 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!--
+    decoration-bf - muestra la línea en Negritas
+    decoration-it - muestra la línea en Cursiva
+    decoration-danger - muestra la línea en Color Rojo
+    decoration-info - muestra la línea en Color Azul Claro
+    decoration-muted - muestra la línea en Color Gris
+    decoration-primary - muestra la línea en Color Morado 
+    decoration-success - muestra la línea en Color Verde Claro
+    decoration-warning -  muestra la línea en Color Anaranjado
+  -->
+    <record model="ir.ui.view" id="tecnico_list">
+      <field name="name">Lista de tecnicos</field>
+      <field name="model">soporte.tecnico</field>
+      <field name="inherit_id" ref="soporte.tecnico_list"/>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre" position="after">
+          <field name="tipo"/>
+          </field>
+        </tree>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="tecnico_action_window">
+      <field name="name">Lista de tecnicos</field>
+      <field name="res_model">soporte.tecnico</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="soporte_paperformat_id" model="report.paperformat">
+      <field name="name">Formato Soporte</field>
+      <field name="format">A4</field>
+      <field name="margin_top">20</field>
+      <field name="margin_bottom">20</field>
+      <field name="margin_left">15</field>
+      <field name="margin_right">15</field>
+      <field name="orientation">Portrait</field>
+    </record>
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="prueba.action_server">
+      <field name="name">prueba server</field>
+      <field name="model_id" ref="model_prueba_prueba"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+<!-- Top menu item -->
+
+  <menuitem name="Soporte SGE" id="soporte.menu_root"/>
+
+  <!-- menu categories -->
+  <menuitem name="Tecnicos" id="soporte_tecnicos" parent="soporte.menu_root"/>
+
+  <!-- actions -->
+  <menuitem name="Mostrar lista" id="soporte_tecnicos_list" parent="soporte_tecnicos"
+            action="tecnico_action_window"/>
+  </data>
+</odoo>
