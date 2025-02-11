@@ -33,6 +33,8 @@ Partial Class Form1
         Me.txtTelefono = New System.Windows.Forms.TextBox()
         Me.btnInsertar = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
+        Me.btnModificar = New System.Windows.Forms.Button()
+        Me.btnFiltrar = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnConectar
@@ -127,11 +129,31 @@ Partial Class Form1
         Me.btnEliminar.Text = "Eliminar"
         Me.btnEliminar.UseVisualStyleBackColor = True
         '
+        'btnModificar
+        '
+        Me.btnModificar.Location = New System.Drawing.Point(470, 342)
+        Me.btnModificar.Name = "btnModificar"
+        Me.btnModificar.Size = New System.Drawing.Size(75, 23)
+        Me.btnModificar.TabIndex = 12
+        Me.btnModificar.Text = "Modificar"
+        Me.btnModificar.UseVisualStyleBackColor = True
+        '
+        'btnFiltrar
+        '
+        Me.btnFiltrar.Location = New System.Drawing.Point(340, 393)
+        Me.btnFiltrar.Name = "btnFiltrar"
+        Me.btnFiltrar.Size = New System.Drawing.Size(75, 23)
+        Me.btnFiltrar.TabIndex = 13
+        Me.btnFiltrar.Text = "Filtrar datos"
+        Me.btnFiltrar.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.btnFiltrar)
+        Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnInsertar)
         Me.Controls.Add(Me.txtTelefono)
@@ -161,4 +183,6 @@ Partial Class Form1
     Friend WithEvents txtTelefono As TextBox
     Friend WithEvents btnInsertar As Button
     Friend WithEvents btnEliminar As Button
+    Friend WithEvents btnModificar As Button
+    Friend WithEvents btnFiltrar As Button
 End Class

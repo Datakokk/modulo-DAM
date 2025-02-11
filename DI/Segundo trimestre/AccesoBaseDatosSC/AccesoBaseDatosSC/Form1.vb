@@ -108,4 +108,37 @@ Public Class Form1
             lstNombre.Items.Add(ofila.Item("Nombre"))
         Next
     End Sub
+
+    Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
+        'buscamos el registro
+        For Each ofila In odataset.Tables("tb1").Rows
+            If txtNombre.Text = ofila("nombre") Then
+                'Verificar informacion
+                ofila("nombre") = txtNombre.Text
+                ofila("direccion") = txtDireccion.Text
+                ofila("telefono") = txtTelefono.Text
+                oconexion.Open()
+                odataadapter.Update(odataset, "tb1")
+                oconexion.Close()
+            End If
+        Next
+    End Sub
+
+    Private Sub btnFiltrar_Click(sender As Object, e As EventArgs) Handles btnFiltrar.Click
+        Dim i As Integer
+
+        Dim expression As String
+        expression = "nombre='" & Me.txtNombre.Text & "'"
+        Dim filaencontrada() As DataRow
+
+        filaencontrada = Me.odataset.Tables("tb1").Select(expression)
+
+        If filaencontrada.GetUpperBound(0) <> -1 Then
+            For i = 0 To filaencontrada.GetUpperBound(0)
+                Me.lstNombre.Items.Add(filaencontrada(i).Item("telefono"))
+            Next i
+        Else
+            MsgBox("error, no existe")
+        End If
+    End Sub
 End Class
