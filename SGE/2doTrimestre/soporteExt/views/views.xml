@@ -16,11 +16,9 @@
       <field name="model">soporte.tecnico</field>
       <field name="inherit_id" ref="soporte.tecnico_list"/>
       <field name="arch" type="xml">
-        <tree>
           <field name="nombre" position="after">
           <field name="tipo"/>
           </field>
-        </tree>
       </field>
     </record>
 
@@ -58,13 +56,13 @@
 -->
 <!-- Top menu item -->
 
-  <menuitem name="Soporte SGE" id="soporte.menu_root"/>
+  <!-- <menuitem name="Soporte SGE" id="soporte.menu_root"/>
 
   <!-- menu categories -->
   <menuitem name="Tecnicos" id="soporte_tecnicos" parent="soporte.menu_root"/>
 
   <!-- actions -->
   <menuitem name="Mostrar lista" id="soporte_tecnicos_list" parent="soporte_tecnicos"
-            action="tecnico_action_window"/>
+            action="tecnico_action_window"/> -->
   </data>
 </odoo>

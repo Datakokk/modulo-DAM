@@ -6,7 +6,7 @@ from odoo.exceptions import ValidationError
 class tecnico(models.Model):
     _name = 'soporte.tecnico'
     _description = 'Modelo para la gestion de personas que solucionan incidencias', 
-    _rec_name = 'nombre'
+    """_rec_name = 'nombre'"""
    
    
     tipo = fields.Selection(
