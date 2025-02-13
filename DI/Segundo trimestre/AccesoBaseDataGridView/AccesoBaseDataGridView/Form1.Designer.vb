@@ -28,11 +28,13 @@ Partial Class Form1
         Me.txtNombre = New System.Windows.Forms.TextBox()
         Me.txtDireccion = New System.Windows.Forms.TextBox()
         Me.txtTelefono = New System.Windows.Forms.TextBox()
-        Me.btnVer = New System.Windows.Forms.Button()
+        Me.btnMostrarNombre = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.btnConectar = New System.Windows.Forms.Button()
         Me.btnCargar = New System.Windows.Forms.Button()
         Me.btnGuardar = New System.Windows.Forms.Button()
+        Me.btnRecorrer = New System.Windows.Forms.Button()
+        Me.btnInsertDDBB = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -84,14 +86,14 @@ Partial Class Form1
         Me.txtTelefono.Size = New System.Drawing.Size(100, 20)
         Me.txtTelefono.TabIndex = 10
         '
-        'btnVer
+        'btnMostrarNombre
         '
-        Me.btnVer.Location = New System.Drawing.Point(553, 357)
-        Me.btnVer.Name = "btnVer"
-        Me.btnVer.Size = New System.Drawing.Size(75, 23)
-        Me.btnVer.TabIndex = 11
-        Me.btnVer.Text = "Ver"
-        Me.btnVer.UseVisualStyleBackColor = True
+        Me.btnMostrarNombre.Location = New System.Drawing.Point(506, 357)
+        Me.btnMostrarNombre.Name = "btnMostrarNombre"
+        Me.btnMostrarNombre.Size = New System.Drawing.Size(103, 23)
+        Me.btnMostrarNombre.TabIndex = 11
+        Me.btnMostrarNombre.Text = "Mostrar nombre"
+        Me.btnMostrarNombre.UseVisualStyleBackColor = True
         '
         'DataGridView1
         '
@@ -103,7 +105,7 @@ Partial Class Form1
         '
         'btnConectar
         '
-        Me.btnConectar.Location = New System.Drawing.Point(146, 357)
+        Me.btnConectar.Location = New System.Drawing.Point(26, 357)
         Me.btnConectar.Name = "btnConectar"
         Me.btnConectar.Size = New System.Drawing.Size(75, 23)
         Me.btnConectar.TabIndex = 13
@@ -112,7 +114,7 @@ Partial Class Form1
         '
         'btnCargar
         '
-        Me.btnCargar.Location = New System.Drawing.Point(279, 357)
+        Me.btnCargar.Location = New System.Drawing.Point(152, 357)
         Me.btnCargar.Name = "btnCargar"
         Me.btnCargar.Size = New System.Drawing.Size(75, 23)
         Me.btnCargar.TabIndex = 14
@@ -121,23 +123,43 @@ Partial Class Form1
         '
         'btnGuardar
         '
-        Me.btnGuardar.Location = New System.Drawing.Point(414, 357)
+        Me.btnGuardar.Location = New System.Drawing.Point(276, 357)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(75, 23)
         Me.btnGuardar.TabIndex = 15
         Me.btnGuardar.Text = "Guardar"
         Me.btnGuardar.UseVisualStyleBackColor = True
         '
+        'btnRecorrer
+        '
+        Me.btnRecorrer.Location = New System.Drawing.Point(400, 357)
+        Me.btnRecorrer.Name = "btnRecorrer"
+        Me.btnRecorrer.Size = New System.Drawing.Size(75, 23)
+        Me.btnRecorrer.TabIndex = 16
+        Me.btnRecorrer.Text = "Recorrer"
+        Me.btnRecorrer.UseVisualStyleBackColor = True
+        '
+        'btnInsertDDBB
+        '
+        Me.btnInsertDDBB.Location = New System.Drawing.Point(643, 356)
+        Me.btnInsertDDBB.Name = "btnInsertDDBB"
+        Me.btnInsertDDBB.Size = New System.Drawing.Size(109, 23)
+        Me.btnInsertDDBB.TabIndex = 17
+        Me.btnInsertDDBB.Text = "Insertar en DDBB"
+        Me.btnInsertDDBB.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.btnInsertDDBB)
+        Me.Controls.Add(Me.btnRecorrer)
         Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.btnCargar)
         Me.Controls.Add(Me.btnConectar)
         Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.btnVer)
+        Me.Controls.Add(Me.btnMostrarNombre)
         Me.Controls.Add(Me.txtTelefono)
         Me.Controls.Add(Me.txtDireccion)
         Me.Controls.Add(Me.txtNombre)
@@ -158,9 +180,11 @@ Partial Class Form1
     Friend WithEvents txtNombre As TextBox
     Friend WithEvents txtDireccion As TextBox
     Friend WithEvents txtTelefono As TextBox
-    Friend WithEvents btnVer As Button
+    Friend WithEvents btnMostrarNombre As Button
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents btnConectar As Button
     Friend WithEvents btnCargar As Button
     Friend WithEvents btnGuardar As Button
+    Friend WithEvents btnRecorrer As Button
+    Friend WithEvents btnInsertDDBB As Button
 End Class
