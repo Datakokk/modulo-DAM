@@ -2,7 +2,7 @@
 Imports System.Data
 Public Class Form1
     Dim oconexion As New OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & Application.StartupPath & "\dbempresas.mdb;")
-    Dim oadapter As New OleDbDataAdapter("SELECT * FROM dbempresas", oconexion)
+    Dim oadapter As New OleDbDataAdapter("SELECT * FROM tbempresas", oconexion)
     Dim odataset As New DataSet()
     Dim obuilder As New OleDbCommandBuilder(oadapter) 'Importante si queremos modificar /borrar/insertar/ datos
     Dim ofila As DataRow
@@ -49,5 +49,41 @@ Public Class Form1
                 End If
             Next
         End If
+    End Sub
+
+    Private Sub btnMostrarNombre_Click(sender As Object, e As EventArgs) Handles btnMostrarNombre.Click
+        If DataGridView1.Rows.Count > 0 Then
+            For Each Fila As DataGridViewRow In DataGridView1.Rows
+                'Fila.Cells.Item("columna").Value
+
+                If Not Fila.Cells.Item("nombre").Value Is Nothing Then
+                    MsgBox(Fila.Cells.Item("nombre").Value)
+                End If
+
+            Next
+        End If
+    End Sub
+
+    Private Sub btnInsertDDBB_Click(sender As Object, e As EventArgs) Handles btnInsertDDBB.Click
+        ofila = odataset.Tables("tbAuxiliar").NewRow
+
+        If txtNombre.Text.Length > 0 And txtDireccion.Text.Length > 0 And txtTelefono.Text.Length > 0 Then
+            ofila("nombre") = txtNombre.Text
+            ofila("direccion") = txtDireccion.Text
+            ofila("telefono") = txtTelefono.Text
+
+            odataset.Tables("tbAuxiliar").Rows.Add(ofila)
+
+            oconexion.Open()
+            oadapter.Update(odataset, "tbAuxiliar")
+            oconexion.Close()
+        Else
+            MsgBox("No puede haber un campo vacio")
+        End If
+
+        txtNombre.Clear()
+        txtDireccion.Clear()
+        txtTelefono.Clear()
+
     End Sub
 End Class
