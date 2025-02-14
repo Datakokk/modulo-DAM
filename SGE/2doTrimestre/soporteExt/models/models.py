@@ -20,6 +20,11 @@ class tecnico(models.Model):
         size=9
     )
     
+    nombre = fields.Char(
+        string="Nombre", 
+        required=True
+    )
+    
     apellido1 = fields.Char(
         string="Primer Apellido", 
         required=True
