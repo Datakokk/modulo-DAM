@@ -25,8 +25,8 @@
       <field name="arch" type="xml">
         <form>
           <header>
-                <!-- Botón para imprimir el informe -->
-              <button name="informe_incidencia_boton" type="object" string="Imprimir incidencia" class="oe_highlight"/>
+            <button name='informe_incidencia_boton' type='object' string='Imprimir incidencia'/>
+            <!--<button name='nombre_funcion_a_definir_modelo' type='object' string='Mensaje en boton'/>-->
           </header>
           <sheet string="Modelo para la gestion de incidencias">
               <h1>
@@ -55,7 +55,7 @@
                   <field name="fecha_creacion"  />  <!--class="oe_read_only"-->
                   <field name="fecha_modificacion"/>
                     <separator string="Tecnicos trabajando en la incidencia"/>
-                      <field name="tecnico_ids" can_create="True" can_write="True">
+                      <field name="tecnico_ids" widget="many2many_tags" can_create="True" can_write="True">
                         <tree>
                           <field name="nombre"/>
                         </tree>
@@ -127,56 +127,6 @@
       <field name="view_mode">tree,form</field>
     </record>
 
-    <record id="soporte_paperformat_id" model="report.paperformat">
-      <field name="name">Formato Soporte</field>
-      <field name="format">A4</field>
-      <field name="margin_top">20</field>
-      <field name="margin_bottom">20</field>
-      <field name="margin_left">15</field>
-      <field name="margin_right">15</field>
-      <field name="orientation">Portrait</field>
-    </record>
-
-
-    <record id="action_informe_incidencias" model="ir.actions.report">
-      <field name="name">Imprimir incidencias</field>
-      <field name="model">soporte.incidencia</field>
-      <field name="report_type">qweb-pdf</field>
-      <field name="report_name">soporte.report_incidencia</field>
-      <field name="report_file">soporte.report_incidencia</field>
-      <field name="binding_model_id" ref="model_soporte_incidencia"></field>
-      <field name="print_report_name">'Soporte - %s' % (object.titulo)</field>
-      <field name="paperformat_id" ref="soporte_paperformat_id"/>
-    </record>
-
-    <template id="soporte.report_incidencia" name="template_name">
-      <t t-call="web.basic_layout">
-        <div class="alert alert-primary" role="alert">
-          <h1> Listado de incidencias </h1>
-        </div>
-        <div class="page">
-          <table class="table table-striped">
-            <thead class="table-dark">
-              <tr>
-                <th>Titulo</th>
-                <th>Descripcion</th>
-                <th>Fecha de modificacion</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr t-foreach="docs" t-as="incidencia">
-                <td><span t-field="incidencia.titulo"/></td>
-                <td><span t-field="incidencia.descripcion"/></td>
-                <td><span t-field="incidencia.fecha_modificacion"/></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </t>
-    </template>
-
-
-
 
     <!-- server action to the one above -->
 <!--
@@ -195,21 +145,21 @@
 -->
 <!-- Top menu item -->
 
-  <menuitem name="Soporte SGE" id="soporte.menu_root"/>
+  <menuitem name="Soporte SGE" id="soporte.menu_root" groups="soporte_users"/>
 
   <!-- menu categories -->
 
-  <menuitem name="Incidencias" id="soporte_incidencias" parent="soporte.menu_root"/>
-  <menuitem name="Ubicaciones" id="soporte_ubicaciones" parent="soporte.menu_root"/>
-  <menuitem name="Tecnicos" id="soporte_tecnicos" parent="soporte.menu_root"/>
+  <menuitem name="Incidencias" id="soporte_incidencias" parent="soporte.menu_root" groups="soporte_users"/>
+  <menuitem name="Ubicaciones" id="soporte_ubicaciones" parent="soporte.menu_root" groups="soporte_admins"/>
+  <menuitem name="Tecnicos" id="soporte_tecnicos" parent="soporte.menu_root" groups="soporte_admins"/>
 
   <!-- actions -->
 
   <menuitem name="Mostrar lista" id="soporte_incidencias_list" parent="soporte_incidencias"
-            action="incidencia_action_window"/>
+            action="incidencia_action_window" groups="soporte_users"/>
   <menuitem name="Mostrar lista" id="soporte_ubicaciones_list" parent="soporte_ubicaciones"
-            action="ubicacion_action_window"/>
+            action="ubicacion_action_window" groups="soporte_admins"/>
   <menuitem name="Mostrar lista" id="soporte_tecnicos_list" parent="soporte_tecnicos"
-            action="tecnico_action_window"/>
+            action="tecnico_action_window" groups="soporte_admins"/>
   </data>
 </odoo>

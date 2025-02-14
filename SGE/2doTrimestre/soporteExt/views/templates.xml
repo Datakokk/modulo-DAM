@@ -1,5 +1,65 @@
 <odoo>
     <data>
+    <!--EN ESTE RECORD ESTABLECEMOS EL FORMATO DEL DOCUMENTO-->
+      <record id="soporte_paperformat_id" model="report.paperformat">
+        <field name="name">Soporte PaperFormat</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">15</field>
+        <field name="margin_bottom">15</field>
+        <field name="margin_left">10</field>
+        <field name="margin_right">10</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">3</field>
+        <field name="dpi">90</field>
+      </record>  
+      
+      <record id="action_informe_incidencias" model="ir.actions.report">
+        <field name="name">Imprimir incidencias</field>
+        <field name="model">soporte.incidencia</field>
+        <!--<field name="report_type">qweb-HTML</field>-->
+        <field name="report_type">qweb-pdf</field> 
+        <field name="report_name">soporte.report_incidencia</field>
+        <field name="report_file">soporte.report_incidencia</field>
+        <field name="binding_model_id" ref="model_soporte_incidencia"></field>
+<!--SI QUEREMOS QUE EL INFORME SE REALICE SEGUN UN FORMATO ESPECIFICO DE PAPEL DEBEREMOS AÑADIR LAS SGUIENTES 2 LINEAS-->
+        <field name="print_report_name">'Soporte - %s' % (object.titulo)</field>
+        <field name="paperformat_id" ref="soporte_paperformat_id"></field>
+      </record>
+
+      <template id="soporte.report_incidencia" name="template_name">
+        <t t-call="web.basic_layout">
+          <!-- web.html_container --> 
+          <div class="alert alert-primary" role="alert">
+            <h1> Listado de incidencias </h1>
+          </div>  
+          <div class="page">
+            <table class= "table table-stripped">
+              <thead class="table-dark">
+                <tr>
+                  <th>Titulo</th>
+                  <th>Descripcion</th>
+                  <th>Fecha_modificacion</th>
+                </tr>
+              </thead>
+              <tbody>
+                <t t-foreach="docs" t-as="incidencia">
+                  <!--<t t-call="web.external_layout">-->
+                    <tr>
+                      <!--  permitiria cargar la foto de la incidencia, si esta existe
+                        <t t-if=incidencia.foto">
+                        <img t-att-src="image_data_uri(incidencia.foto)" style="max-height:100px"/>
+                      -->
+                      <td><span t-field = "incidencia.titulo"/></td>
+                      <td><span t-field = "incidencia.descripcion"/></td>
+                      <td><span t-field = "incidencia.fecha_modificacion"/></td>
+                    </tr> 
+                  <!--</t>-->
+                </t>
+              </tbody>
+            </table>
+          </div>
+        </t>  
+      </template>   
 <!--
         <template id="listing">
           <ul>

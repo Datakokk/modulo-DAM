@@ -6,8 +6,11 @@ from odoo.exceptions import ValidationError
 class incidencia(models.Model):
     _name = 'soporte.incidencia'
     _description = 'Modelo para la gestion de incidencias'
-   
-   
+    _rec_name = 'titulo'
+
+    def informe_incidencia_boton(self):
+        return self.env.ref('soporte.action_informe_incidencia').report_action(self)
+
     titulo = fields.Char(
         string='Titulo',
         required=True,
@@ -31,9 +34,6 @@ class incidencia(models.Model):
         compute='_compute_urgente',
         store=True
     )
-
-    def informe_incidencia_boton(self):
-        return self.env.ref('soporte.action_informe_incidencias').report_action(self)
         
     @api.depends('prioridad')
     def _compute_urgente(self):
@@ -103,17 +103,6 @@ class incidencia(models.Model):
     _sql_constraints = [
         ("constraint_intervalo_prioridad", "CHECK(prioridad>=0)", "La prioridad debe ser mayor a 0")
     ]
-    """
-    #DAM tiene claro 
-
-    #DAW hacer tareas de uso de IA para desarrollo web
-
-
-
-    #ASIR y SMR --> CONSULTA CON ALUMNOS INTERES EN HACER ONLINE
-
-
-    """
 class ubicacion(models.Model):
     _name = 'soporte.ubicacion'
     _description = 'Modelo para la gestion de ubicaciones'
@@ -137,7 +126,7 @@ class ubicacion(models.Model):
     )
     planta = fields.Selection(
         string='Planta',
-        selection=[('0', 'Planta baja'),('2', 'Planta primera'),('3', 'Planta segunda')]
+        selection=[('0', 'Planta baja'),('1', 'Planta primera'),('2', 'Planta segunda')]
     )
 
 class tecnico(models.Model):
@@ -147,7 +136,8 @@ class tecnico(models.Model):
    
     nombre = fields.Char(
         string='Nombre',
-        required=True
+        required=True,
+        default = 'Tecnico X'
     )
     """
     incidencias_ids = fields.Many2many(
