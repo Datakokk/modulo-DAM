@@ -1,58 +1,66 @@
 <odoo>
-    <data>
-        <!-- explicit list view definition -->
-        
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="tecnico_list_inherited">
+      <field name="name">Lista de tecnicos</field>
+      <field name="model">soporte.tecnico</field>
+      <field name="inherit_id" ref="soporte.tecnico_list"/>
+      <field name="arch" type="xml">
         <!--
-        decoration-bf - muestra la línea en Negritas
-        decoration-it - muestra la línea en Cursiva
-        decoration-danger - muestra la línea en Color Rojo
-        decoration-info - muestra la línea en Color Azul Claro
-        decoration-muted - muestra la línea en Color Gris
-        decoration-primary - muestra la línea en Color Morado 
-        decoration-success - muestra la línea en Color Verde Claro
-        decoration-warning - muestra la línea en Color Anaranjado
+          position:
+            inside
+            after
+            before
+            replace
+            attributes
         -->
-        
-        <record model="ir.ui.view" id="tecnico_form">
-            <field name="name">Lista de tecnicos</field>
-            <field name="model">soporte.tecnico</field>
-            <field name="arch" type="xml">
-                <form>
-                    <sheet string="Modelo para la gestión de personas que solucionan incidencias">
-                        <div class="oe_title">
-                            <h1>Técnico_<field name="id"/></h1>
-                        </div>
-                        <div class="row">
-                            <div class="oe_title mt-4">
-                                <h1>
-                                    <field name="dni" placeholder="12345678Z" class="oe_inline"/>
-                                </h1>
-                            </div>
-                            <div class="mt-4">
-                                <field name="foto" widget="image" class="oe_right" options="{'size':[0,200]}"/>
-                            </div>
-                        </div>
-                        
-                        <separator string="Datos personales" colspan="4"/>
-                        <group col="3">
-                            <group>
-                                <field name="apellido1"/>
-                                <field name="fecha_incorporacion"/>
-                            </group>
-                            <group>
-                                <field name="apellido2"/>
-                                <field name="fecha_nacimiento"/>
-                            </group>
-                            <group>
-                                <field name="nombre"/>
-                                <field name="tipo"/>
-                            </group>
-                        </group>
-                        
-                        <separator string="Incidencias realizadas" colspan="4"/>
-                        
+        <field name="nombre" position="after"> 
+          <field name="tipo"/>
+        </field>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="tecnico_form">
+          <field name="name">Lista de tecnicos</field>
+          <field name="model">soporte.tecnico</field>
+          <field name="arch" type="xml">
+
+            <form >
+                <sheet string ="Modelo para la gestión de personas que solucionan incidencias">
+                  <div class = "oe_title">
+                    <h1>Técnico_<field name="id"/></h1>
+                  </div>
+                  <div class = "row">
+                    <div class = "oe_title mt-4">
+                      <h1>
+                        <!--<label for="dni" class="oe_edit_only"/>-->
+                        <field name = "dni" placeholder="12345678Z" class="oe_inline"/>                 
+                      </h1>
+                    </div>
+                    <div class ="mt-4">
+                      <field name="foto" widget="image" class="oe_right" options="{'size':[0,200]}"/>
+                    </div>
+                  </div>
+                  <separator string="Datos personales" colspan="4"/>
+                    <group col="3">
+                      <group >
+                        <field name="apellido1"/>
+                        <field name="fecha_incorporacion"/>
+                      </group>
+                      <group >
+                        <field name="apellido2"/>
+                        <field name="fecha_nacimiento"/>
+                      </group>
+                      <group >
+                        <field name="nombre" />
+                        <field name="tipo" />
+                      </group>
+                  </group>
+                  <separator string="Incidencias realizadas" colspan="4"/>
+               
                         <!-- Campo de incidencias con vista tipo árbol -->
-                        <field name="incidencia_ids" can_create="True" can_write="True">
+                        <field name="incidencia_ids" can_create="True" can_write="True" field_id="incidencia_ids_0">
                             <tree decoration-success="cerrada == True" decoration-danger="prioridad &lt; 7">
                                 <field name="titulo" on_change="1"/>
                                 <field name="descripcion" on_change="1"/>
@@ -64,41 +72,15 @@
                                 <field name="fecha_modificacion"/>
                             </tree>
                         </field>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-
-        <!-- actions opening views on models -->
-        <record model="ir.actions.act_window" id="tecnico_action_window">
-            <field name="name">Lista de tecnicos</field>
-            <field name="res_model">soporte.tecnico</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-
-        <!-- server action to the one above -->
-        <!--
-        <record model="ir.actions.server" id="prueba.action_server">
-            <field name="name">prueba server</field>
-            <field name="model_id" ref="model_prueba_prueba"/>
-            <field name="state">code</field>
-            <field name="code">
-                action = {
-                    "type": "ir.actions.act_window",
-                    "view_mode": "tree,form",
-                    "res_model": model._name,
-                }
-            </field>
-        </record>
-        -->
-        
-        <!-- Top menu item -->
-        <!-- <menuitem name="Soporte SGE" id="soporte.menu_root" groups="soporte_users"/> -->
-
-        <!-- menu categories -->
-        <!-- <menuitem name="Tecnicos" id="soporte_tecnicos" parent="soporte.menu_root" groups="soporte_admins"/> -->
-
-        <!-- actions -->
-        <!-- <menuitem name="Mostrar lista" id="soporte_tecnicos_list" parent="soporte_tecnicos" action="tecnico_action_window" groups="soporte_admins"/> -->
-    </data>
+                </sheet>
+                <div class="oe_chatter">
+                  <field name="message_follower_ids" widget="mail_followers"/>
+                  <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+          </field>
+    </record>
+  </data>
 </odoo>
+
+<!--info@unoalcubo.es-->

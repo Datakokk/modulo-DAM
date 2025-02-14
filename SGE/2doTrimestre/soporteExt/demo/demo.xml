@@ -1,55 +1,55 @@
 <odoo>
     <data>
 <!-- Datos para el modelo soporte.tecnico -->
+          <record id="tecnico0" model="soporte.tecnico">
+            <field name="nombre">Técnico 0</field>
+          </record>
           <record id="tecnico1" model="soporte.tecnico">
-            <field name="nombre">Juan</field>
+            <field name="nombre">Técnico 1</field>
           </record>
           <record id="tecnico2" model="soporte.tecnico">
-            <field name="nombre">Marta</field>
-          </record>
-          <record id="tecnico3" model="soporte.tecnico">
-            <field name="nombre">Paco</field>
+            <field name="nombre">Técnico 2</field>
           </record>
 <!-- Datos para el modelo soporte.ubicacion -->
 
 
-          <record id="ubicacion1" model="soporte.ubicacion">
+          <record id="ubicacion0" model="soporte.ubicacion">
             <field name="nombre">Aula 203</field>
             <!--selection=[('1', 'Pabellon Paris'),('2', 'Pabellon Roma'),('3', 'Pabellon Londres')]-->
             <field name="pabellon">1</field>
             <!--selection=[('0', 'Planta baja'),('1', 'Planta primera'),('2', 'Planta segunda')]-->
             <field name="planta">1</field>
           </record>
-          <record id="ubicacion2" model="soporte.ubicacion">
+          <record id="ubicacion1" model="soporte.ubicacion">
             <field name="nombre">Aula 204</field>
             <field name="pabellon">2</field>
             <field name="planta">1</field>
           </record>
-          <record id="ubicacion3" model="soporte.ubicacion">
+          <record id="ubicacion2" model="soporte.ubicacion">
             <field name="nombre">Aula 205</field>
             <field name="pabellon">1</field>
             <field name="planta">1</field>
           </record>
 <!-- Datos para el modelo soporte.incidencia -->
-          <record id="incidencia1" model="soporte.incidencia">
-            <field name="titulo">Incidencia 1</field>
+          <record id="incidencia0" model="soporte.incidencia">
+            <field name="titulo">Incidencia 0</field>
             <field name="descripcion">El ordenador del aula no funciona</field>
             <field name="prioridad">0</field>
             <field name="ubicacion_id" ref="ubicacion2"/>
             <field name="cerrada">0</field>
             <!--la ruta debe partir de la carpeta donde se encuentre el modulo-->
-            <field name="foto" file="soporte/static/imgs/ratonRoto.jpeg" type="base64"/>
+            <field name="foto" file="soporte/static/imgs/ratonRoto.webp" type="base64"/>
             <field name="fecha_creacion" eval= "(datetime.now()).strftime('%Y-%m-%d')"/>
             <field name="fecha_modificacion" eval= "(datetime.now()).strftime('%Y-%m-%d')"/>
           </record>
-            <record id="incidencia2" model="soporte.incidencia">
-            <field name="titulo">Incidencia 2</field>
+            <record id="incidencia1" model="soporte.incidencia">
+            <field name="titulo">Incidencia 1</field>
             <field name="descripcion">El teclado no funciona</field>
             <field name="prioridad">0</field>
             <field name="ubicacion_id" ref="ubicacion1"/>
             <field name="cerrada">0</field>
             <!--la ruta debe partir de la carpeta donde se encuentre el modulo-->
-            <field name="foto" file="soporte/static/imgs/tecladoRoto.jpeg" type="base64"/>
+            <field name="foto" file="soporte/static/imgs/tecladoRoto.png" type="base64"/>
             <field name="fecha_creacion" eval= "(datetime.now()).strftime('%Y-%m-%d')"/>
             <field name="fecha_modificacion" eval= "(datetime.now()).strftime('%Y-%m-%d')"/>
             <field name="tecnico_ids" eval="[(6,0,[ref('tecnico1'),ref('tecnico2')])]"></field>

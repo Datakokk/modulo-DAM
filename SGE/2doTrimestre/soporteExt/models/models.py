@@ -5,70 +5,50 @@ from odoo.exceptions import ValidationError
 import re
 
 class tecnico(models.Model):
-    _name = 'soporte.tecnico'
+    _name = 'soporte.tecnico' #ESTE CAMPO SOLO ES OBLIGATORIO CUANDO HEREDEMOS DE MAS DE UN MODELO
+    _inherit= ['soporte.tecnico','mail.thread']
     _description = 'Modelo para la gestion de personas que solucionan incidencias'
-    inherit = ['soporte.tecnico']
+    _rec_name='nombre'
    
     tipo = fields.Selection(
         string='Tipo',
-        selection=[('0', 'Tec. general'), ('1', 'Tec. Hardware'), ('2', 'Tec. Software'), ('3', 'Tec. Redes') ]
+        selection=[('0', 'Tec. general'),('1', 'Tec. Hardware'),('2', 'Tec. Software'),('3', 'Tec. Redes')]
     )
-
     dni = fields.Char(
-        string="DNI", 
-        required=True, 
-        size=9
+        string ='DNI',
+        size = 9,
     )
-    
-    nombre = fields.Char(
-        string="Nombre", 
-        required=True
+    apellido1  = fields.Char(
+        string='Primer apellido',
+        #required = True,
     )
-    
-    apellido1 = fields.Char(
-        string="Primer Apellido", 
-        required=True
+    apellido2  = fields.Char(
+        string='Sgundo apellido',
+        #required = True,
     )
-    
-    apellido2 = fields.Char(
-        string="Segundo Apellido"
-    )
-    
     fecha_nacimiento = fields.Date(
-        string="Fecha de Nacimiento"
+        string='Fecha de nacimiento'
     )
-    
-    fecha_incorporacion = fields.Datetime(
-        string="Fecha de Incorporación", 
-        default=fields.Datetime.now,
-        readonly=True
+    fecha_incorporacion  = fields.Date(
+        string='Fecha incorporacion',
+        #default=fields.Date.context_today,
+        default=lambda self: fields.Datetime.now(),
+        readonly = True,
     )
-
-    foto = fields.Binary(
-        string="Foto", 
-        help="Tamaño máximo: 200x200",
+    foto  = fields.Image(
+        string='Foto',
         max_width=200,
-        max_height=200
+        max_height=200,
     )
-    
-
+#RESTICCIONES
+    #EXPRESIONES REGULARES https://docs.python.org/es/3/library/re.html
     @api.constrains('dni')
     def _check_dni(self):
-        regex = re.compile(r'^[0-9]{8}[A-Z]$', re.I)
+        regex = re.compile('[0-9]{8}[A-Z]\Z',re.I)
         for record in self:
             if not regex.match(record.dni):
-                raise ValidationError('ERROR. Formato DNI incorrecto. Debe ser 8 números seguidos de una letra.')
+                raise ValidationError('ERROR. Formato DNI incorrecto. ')
 
-    # 🔹 Restricción SQL para que el DNI sea único
     _sql_constraints = [
-        ('dni_unico', 'UNIQUE(dni)', "El DNI debe ser único."),
+        ('DNI_unico', 'UNIQUE(dni)', "El DNI debe ser único")
     ]
-    """
-    incidencias_ids = fields.Many2many(
-        comodel_name='soporte.incidencia',  # Modelo relacionado
-        relation='soporte_tecnico_incidencia_rel',  # Nombre de la tabla intermedia
-        column1='tecnico_id',  # Nombre del campo en la tabla intermedia que apunta a este modelo
-        column2='incidencia_id',  # Nombre del campo en la tabla intermedia que apunta al modelo relacionado
-        string='Incidencias'
-    )
-    """

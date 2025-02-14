@@ -13,7 +13,7 @@
         <field name="dpi">90</field>
       </record>  
       
-      <record id="action_informe_incidencias" model="ir.actions.report">
+      <record id="action_informe_incidencia" model="ir.actions.report">
         <field name="name">Imprimir incidencias</field>
         <field name="model">soporte.incidencia</field>
         <!--<field name="report_type">qweb-HTML</field>-->
