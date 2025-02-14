@@ -10,6 +10,18 @@ class tecnico(models.Model):
     _description = 'Modelo para la gestion de personas que solucionan incidencias'
     _rec_name='nombre'
    
+
+    display_name = fields.Char(
+        compute="_compute_display_name", 
+        store=True
+    )
+    @api.depends("nombre", "apellido1")
+    def _compute_display_name(self):
+        for record in self:
+            record.display_name= f"{record.id}-{record.nombre}_{record.apellido1}"
+    def name_get(self):
+        return [(record.id, record.display_name) for record in self]
+
     tipo = fields.Selection(
         string='Tipo',
         selection=[('0', 'Tec. general'),('1', 'Tec. Hardware'),('2', 'Tec. Software'),('3', 'Tec. Redes')]
