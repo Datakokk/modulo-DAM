@@ -1,5 +1,6 @@
 package io.github.some_example_name;
 
+import io.github.some_example_name.characters.Enemies;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -48,6 +49,7 @@ public class MainGame implements Screen {
                 System.out.println("Congiguración");
             } else if (b_exit_r.contains(x_in, y_in)) {
                 System.out.println("Salir");
+                Gdx.app.exit();
             }
         }
 
