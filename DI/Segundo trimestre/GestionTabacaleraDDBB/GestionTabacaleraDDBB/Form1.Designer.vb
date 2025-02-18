@@ -45,7 +45,8 @@ Partial Class Form1
         Me.btnBorrarPedido = New System.Windows.Forms.Button()
         Me.btnRealizarPedido = New System.Windows.Forms.Button()
         Me.LBoxPedidos = New System.Windows.Forms.ListBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnVolver = New System.Windows.Forms.Button()
+        Me.lblVenta = New System.Windows.Forms.Label()
         Me.GBoxProducto.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GBoxCaracteristicas.SuspendLayout()
@@ -269,21 +270,32 @@ Partial Class Form1
         Me.LBoxPedidos.Size = New System.Drawing.Size(120, 95)
         Me.LBoxPedidos.TabIndex = 0
         '
-        'Button1
+        'btnVolver
         '
-        Me.Button1.Location = New System.Drawing.Point(576, 339)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnVolver.Location = New System.Drawing.Point(609, 359)
+        Me.btnVolver.Name = "btnVolver"
+        Me.btnVolver.Size = New System.Drawing.Size(75, 23)
+        Me.btnVolver.TabIndex = 4
+        Me.btnVolver.Text = "Volver"
+        Me.btnVolver.UseVisualStyleBackColor = True
+        '
+        'lblVenta
+        '
+        Me.lblVenta.AutoSize = True
+        Me.lblVenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblVenta.Location = New System.Drawing.Point(400, 9)
+        Me.lblVenta.Name = "lblVenta"
+        Me.lblVenta.Size = New System.Drawing.Size(57, 20)
+        Me.lblVenta.TabIndex = 5
+        Me.lblVenta.Text = "Venta"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(880, 450)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.lblVenta)
+        Me.Controls.Add(Me.btnVolver)
         Me.Controls.Add(Me.GBoxCaracteristicas)
         Me.Controls.Add(Me.GBoxCompra)
         Me.Controls.Add(Me.GBoxPedidos)
@@ -300,6 +312,7 @@ Partial Class Form1
         CType(Me.NumericUpDownUnidades, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GBoxPedidos.ResumeLayout(False)
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -326,5 +339,6 @@ Partial Class Form1
     Friend WithEvents txtNumCigarrillos As TextBox
     Friend WithEvents btnBorrarPedido As Button
     Friend WithEvents btnRealizarPedido As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnVolver As Button
+    Friend WithEvents lblVenta As Label
 End Class

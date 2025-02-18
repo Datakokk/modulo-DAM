@@ -11,7 +11,7 @@ Public Class Form1
     Dim precioCajetilla As Double
     Dim marcaCajetilla As String
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
-        BorrarRegistroYResetearID()
+        'BorrarRegistroYResetearID()
         Try
             oconexion.Open()
             tabaquerasAdapter.Fill(odataset, "tbTabaqueras")
@@ -187,7 +187,10 @@ Public Class Form1
         End Try
     End Sub
 
-
+    Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+        Me.Hide()
+        formulario2.Show()
+    End Sub
     Private Sub BorrarRegistroYResetearID()
         Try
             oconexion.Open()
@@ -199,7 +202,7 @@ Public Class Form1
             Dim verificarVacio As New OleDbCommand("SELECT COUNT(*) FROM tbpedidos", oconexion)
             Dim cantidadRegistros As Integer = Convert.ToInt32(verificarVacio.ExecuteScalar())
 
-            ' Solo ejecutar ALTER TABLE si la tabla está completamente vacía
+            ' Ejecutamos ALTER TABLE si la tabla está completamente vacía
             If cantidadRegistros = 0 Then
                 Dim resetComando As New OleDbCommand("ALTER TABLE tbpedidos ALTER COLUMN Id_pedido COUNTER (1,1);", oconexion)
                 resetComando.ExecuteNonQuery()
