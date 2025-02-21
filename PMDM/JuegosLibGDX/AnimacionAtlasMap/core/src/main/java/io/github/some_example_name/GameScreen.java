@@ -6,10 +6,14 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TmxMapLoader;
+import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ScreenUtils;
@@ -28,8 +32,8 @@ public class GameScreen implements Screen {
     private Boolean isJumping = false;
     private final float GRAVITY = -450;
     private float velocityY = 0;
-    private final float JUMP_VELOCITY = 300;
-    private final float GROUND_Y = 100;
+    private final float JUMP_VELOCITY = 450;
+    private final float GROUND_Y = 50;
     private Array<TextureRegion> allFramesJump = new Array<>();
     private TextureRegion currentFrame;
 
@@ -39,12 +43,19 @@ public class GameScreen implements Screen {
     private float EnemySpawnerTime;
     private float TimegameOver = 5;
 
+    private TiledMap tilemap;
+    private OrthogonalTiledMapRenderer tiledMapRenderer;
+    private OrthographicCamera camera;
+    private Array<Rectangle> collisions = new Array<>();
+    private Rectangle MarioBounds = new Rectangle(x,y,16,16);
+
     @Override
     public void show() {
         batch = new SpriteBatch();
         atlas = new TextureAtlas(Gdx.files.internal("Mario_and_Enemies.pack"));
         TextureAtlas.AtlasRegion bigMarioRegion = atlas.findRegion("big_mario");
         int count = bigMarioRegion.getRegionWidth() / 16;
+        loadCollision();
 
         hud = new HUD();
         EnemySpawnerTime = 0;
@@ -64,7 +75,16 @@ public class GameScreen implements Screen {
         y = GROUND_Y;
         isJumping = false;
         isMoving = false;
+
+        tilemap = new TmxMapLoader().load("levels/level1.tmx");
+        tiledMapRenderer = new OrthogonalTiledMapRenderer(tilemap, 3);
+
+        camera = new OrthographicCamera();
+        camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        camera.position.set(camera.viewportWidth / 2, camera.viewportHeight / 2, 0);
+        camera.update();
     }
+
 
     @Override
     public void render(float delta) {
@@ -72,7 +92,7 @@ public class GameScreen implements Screen {
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
         handleInput();
         applyGravity(delta);
-        EnemySpawnerTime = delta;
+        EnemySpawnerTime += delta;
 
         if(hud.isGameOver()){
             TimegameOver -= delta;
@@ -80,6 +100,7 @@ public class GameScreen implements Screen {
 
         if(TimegameOver < 0){
             ((Game) Gdx .app.getApplicationListener()).setScreen(new MainGame());
+            System.out.println("Game over");
         }
         if(EnemySpawnerTime > 2){
             Enemies.add(new Enemies(Gdx.graphics.getWidth(), GROUND_Y, atlas));
@@ -89,20 +110,25 @@ public class GameScreen implements Screen {
         for(int i = 0; i < Enemies.size; i++){
             Enemies enemy = Enemies.get(i);
             enemy.update(delta);
-            System.out.println("Enemigo x:"+enemy.getX());
-            Rectangle MarioBounds = new Rectangle(x,y,16,16);
+
             if(enemy.checkCollision(MarioBounds)){
-                System.out.println("Collision encontrada");
                 if(velocityY < 0 && y > enemy.getY()){
                     Enemies.removeIndex(i);
                     HUD.increaseScore();
                     velocityY = JUMP_VELOCITY / 2;
                 } else {
                     System.out.println("Game Over");
-                    hud.setGameOver(false);
+                    hud.setGameOver(true);
                 }
             }
         }
+        camera.position.x = Math.max(camera.viewportWidth/2 , x + 50);
+        camera.position.y = Math.max(camera.viewportHeight/2, y + 50);
+        camera.update();
+
+        tiledMapRenderer.setView(camera);
+        tiledMapRenderer.render();
+
         batch.begin();
         stateTime += Gdx.graphics.getDeltaTime();
         currentFrame = bigMarioAnimation.getKeyFrame(stateTime, true);
@@ -121,6 +147,20 @@ public class GameScreen implements Screen {
         hud.render(batch);
     }
 
+    public void loadCollision(){
+        collisions.add(new Rectangle(942, 50, 32, 64));
+    }
+
+    public Boolean isCollision(Rectangle player){
+        boolean res = false;
+        MarioBounds.setPosition(x, y);
+        for(Rectangle col: collisions){
+            if(player.overlaps(col)){
+                res = true;
+            }
+        }
+        return  res;
+    }
     private void applyGravity(float delta){
         if(isJumping){
             isMoving = true;
@@ -138,18 +178,20 @@ public class GameScreen implements Screen {
     }
     private void handleInput(){
         // Movemos el personaje con las teclas
-        if(Gdx.input.isKeyPressed(Input.Keys.A)){ // Se puede usar right
-            x += 200 * Gdx.graphics.getDeltaTime();
-            isMoving = true;
-        }
-        if(Gdx.input.isKeyPressed(Input.Keys.D)){// Se puede usar left
-            x -= 200 * Gdx.graphics.getDeltaTime();
-            isMoving = true;
-        }
-        if(Gdx.input.isKeyPressed(Input.Keys.SPACE) && !isJumping){
-            velocityY = JUMP_VELOCITY;
-            isJumping = true;
-            y += 200 * Gdx.graphics.getDeltaTime();
+        if(!isCollision(MarioBounds)){
+            if(Gdx.input.isKeyPressed(Input.Keys.A)){ // Se puede usar right
+                x += 200 * Gdx.graphics.getDeltaTime();
+                isMoving = true;
+            }
+            if(Gdx.input.isKeyPressed(Input.Keys.D)){// Se puede usar left
+                x -= 200 * Gdx.graphics.getDeltaTime();
+                isMoving = true;
+            }
+            if(Gdx.input.isKeyPressed(Input.Keys.SPACE) && !isJumping){
+                velocityY = JUMP_VELOCITY;
+                isJumping = true;
+                y += 200 * Gdx.graphics.getDeltaTime();
+            }
         }
     }
 

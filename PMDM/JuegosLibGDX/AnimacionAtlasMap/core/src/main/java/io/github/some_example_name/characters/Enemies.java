@@ -25,9 +25,9 @@ public class Enemies {
     }
 
     public void render(SpriteBatch batch){
-        batch.begin();
+        //batch.begin();
         batch.draw(enemyTexture, x, y, enemyTexture.getRegionWidth() * 3, enemyTexture.getRegionHeight() * 4);
-        batch.end();
+        //batch.end();
     }
 
     public Boolean checkCollision(Rectangle player){
