@@ -22,12 +22,87 @@ Public Class Form4
         End Try
     End Sub
     Private Sub btnAltaTabaquera_Click(sender As Object, e As EventArgs) Handles btnAltaTabaquera.Click
+        Dim ofila As DataRow
+        Dim enc As Boolean = False
 
+        ' Verificar si el nombre ya existe en la tabla
+        For Each fila As DataRow In odataset.Tables("tbTabaqueras").Rows
+            If fila("Nombre").ToString() = txtNombreTabaquera.Text Then
+                MessageBox.Show("El nombre ya existe, por favor pruebe con otro", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                enc = True
+                Exit For
+            End If
+        Next
+
+        ' Solo insertar si no hay duplicados
+        If Not enc Then
+            ofila = odataset.Tables("tbTabaqueras").NewRow
+            ofila("Nombre") = txtNombreTabaquera.Text
+            ofila("Direccion") = txtDireccionTabaquera.Text
+
+            odataset.Tables("tbTabaqueras").Rows.Add(ofila)
+
+            ' Intentar actualizar la base de datos
+            Try
+                oconexion.Open()
+                tabaquerasAdapter.Update(odataset, "tbTabaqueras")
+                oconexion.Close()
+
+                txtNombreTabaquera.Clear()
+                txtDireccionTabaquera.Clear()
+
+                MessageBox.Show("Se ha dado de alta correctamente la tabaquera", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            Catch ex As Exception
+                MessageBox.Show("Error No se ha podido dar de alta la tabaquera: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End If
+    End Sub
+
+    Private Sub btnAltaMarca_Click(sender As Object, e As EventArgs) Handles btnAltaMarca.Click
+        Dim ofila As DataRow
+        Dim enc As Boolean = False
+
+        ' Verificar si el nombre ya existe en la tabla
+        For Each fila As DataRow In odataset.Tables("tbMarcas").Rows
+            If fila("nombre_marca").ToString() = txtNombreMarca.Text Then
+                MessageBox.Show("El nombre ya existe, por favor pruebe con otro", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                enc = True
+                Exit For
+            End If
+        Next
+
+        ' Solo insertar si no hay duplicados
+        If Not enc Then
+            ofila = odataset.Tables("tbMarcas").NewRow
+            ofila("nombre_marca") = txtNombreMarca.Text
+            ofila("Nombretb") = txtNombreTabaquera.Text
+            ofila("Nº_Cigarrillos") = txtNCigarrillos.Text
+            ofila("Nicotina") = txtNicotina.Text
+            ofila("Precio") = txtPrecio.Text
+            ofila("Foto") = txtFoto.Text
+
+            odataset.Tables("tbMarcas").Rows.Add(ofila)
+
+            ' Intentar actualizar la base de datos
+            Try
+                oconexion.Open()
+                tabaquerasAdapter.Update(odataset, "tbMarcas")
+                oconexion.Close()
+
+                txtNombreTabaquera.Clear()
+                txtDireccionTabaquera.Clear()
+
+                MessageBox.Show("Se ha dado de alta correctamente la marca", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            Catch ex As Exception
+                MessageBox.Show("Error No se ha podido dar de alta la marca: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End If
     End Sub
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
         Me.Hide()
         formulario3.Show()
     End Sub
-
 
 End Class
