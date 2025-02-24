@@ -44,6 +44,7 @@ public class MainGame implements Screen {
 
             if(b_start_r.contains(x_in, y_in)){
                 System.out.println("Empieza el juego");
+                //Cambiamos la pantalla
                 ((Game) Gdx .app.getApplicationListener()).setScreen(new GameScreen());
             } else if (b_settings_r.contains(x_in, y_in)) {
                 System.out.println("Congiguración");

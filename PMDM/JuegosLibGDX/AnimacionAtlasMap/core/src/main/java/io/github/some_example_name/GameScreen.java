@@ -179,11 +179,11 @@ public class GameScreen implements Screen {
     private void handleInput(){
         // Movemos el personaje con las teclas
         if(!isCollision(MarioBounds)){
-            if(Gdx.input.isKeyPressed(Input.Keys.A)){ // Se puede usar right
+            if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)){ // Se puede usar right
                 x += 200 * Gdx.graphics.getDeltaTime();
                 isMoving = true;
             }
-            if(Gdx.input.isKeyPressed(Input.Keys.D)){// Se puede usar left
+            if(Gdx.input.isKeyPressed(Input.Keys.LEFT)){// Se puede usar left
                 x -= 200 * Gdx.graphics.getDeltaTime();
                 isMoving = true;
             }
