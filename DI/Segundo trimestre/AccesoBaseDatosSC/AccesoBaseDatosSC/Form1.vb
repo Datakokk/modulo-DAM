@@ -136,6 +136,7 @@ Public Class Form1
         If filaencontrada.GetUpperBound(0) <> -1 Then
             For i = 0 To filaencontrada.GetUpperBound(0)
                 Me.lstNombre.Items.Add(filaencontrada(i).Item("telefono"))
+                Me.txtTelefono.Text = filaencontrada(i).Item("telefono")
             Next i
         Else
             MsgBox("error, no existe")

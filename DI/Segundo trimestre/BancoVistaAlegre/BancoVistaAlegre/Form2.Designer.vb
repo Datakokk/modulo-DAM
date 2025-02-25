@@ -192,7 +192,7 @@ Partial Class Form2
         '
         'btnPresioneAlta
         '
-        Me.btnPresioneAlta.Location = New System.Drawing.Point(423, 385)
+        Me.btnPresioneAlta.Location = New System.Drawing.Point(379, 385)
         Me.btnPresioneAlta.Name = "btnPresioneAlta"
         Me.btnPresioneAlta.Size = New System.Drawing.Size(147, 23)
         Me.btnPresioneAlta.TabIndex = 17
@@ -202,7 +202,7 @@ Partial Class Form2
         '
         'btnPresioneActualizar
         '
-        Me.btnPresioneActualizar.Location = New System.Drawing.Point(423, 385)
+        Me.btnPresioneActualizar.Location = New System.Drawing.Point(379, 385)
         Me.btnPresioneActualizar.Name = "btnPresioneActualizar"
         Me.btnPresioneActualizar.Size = New System.Drawing.Size(147, 23)
         Me.btnPresioneActualizar.TabIndex = 18

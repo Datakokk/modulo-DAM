@@ -2,7 +2,7 @@
 Imports System.Data.OleDb
 Public Class Form2
     Dim oconexion As New OleDbConnection
-    Dim Numero_cuenta As Integer = 331
+    Dim id As Integer = 331
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles Me.Load
         oconexion.ConnectionString = ("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & Application.StartupPath & "\dbbanco.accdb;")
     End Sub
@@ -29,6 +29,7 @@ Public Class Form2
         txtIntroCuenta.Visible = False
         btnPresioneActualizar.Visible = False
         btnPresioneAlta.Visible = True
+        btnPresioneActualizar.Visible = True
         lblIntroDireccion.Visible = True
         lblIntroNombre.Visible = True
         lblIntroSaldo.Visible = True
@@ -79,14 +80,12 @@ Public Class Form2
     End Sub
 
     Private Sub btnPresioneActualizar_Click(sender As Object, e As EventArgs) Handles btnPresioneActualizar.Click
-        Dim ocomando = New OleDbCommand("UPDATE tbdatos SET Nombre = @A, Direccion = @B, Telefono = @C WHERE Numero_cuenta = @D;", oconexion)
-        ocomando.Parameters.AddWithValue("@A", txtIntroNombre.Text)
-        ocomando.Parameters.AddWithValue("@B", txtIntroDireccion.Text)
-        ocomando.Parameters.AddWithValue("@C", txtIntroTelefono.Text)
-        ocomando.Parameters.AddWithValue("@D", txtIntroCuenta.Text)
+        Dim ocomando = New OleDbCommand("UPDATE tbdatos SET Nombre, Direccion, Telefono WHERE Numero_cuenta = @A;", oconexion)
+        ocomando.Parameters.AddWithValue("@A", txtIntroCuenta.Text)
+        Dim odatareader As OleDbDataReader
 
         oconexion.Open()
-        ocomando.ExecuteNonQuery()
+        odatareader = ocomando.ExecuteReader
         oconexion.Close()
 
         txtIntroNombre.Clear()
@@ -97,24 +96,17 @@ Public Class Form2
     End Sub
 
     Private Sub btnPresioneAlta_Click(sender As Object, e As EventArgs) Handles btnPresioneAlta.Click
-        Dim icomando = New OleDbCommand("INSERT INTO tbdatos(Numero_cuenta, Nombre, Direccion, Telefono) VALUES (?, ?, ?, ?)", oconexion)
-        Dim ucomando = New OleDbCommand("INSERT INTO tbcuentas(Numero_cuenta, Saldo) VALUES (?, ?)", oconexion)
-        icomando.Parameters.AddWithValue("?", Numero_cuenta)
-        icomando.Parameters.AddWithValue("?", txtIntroNombre.Text)
-        icomando.Parameters.AddWithValue("?", txtIntroDireccion.Text)
-        icomando.Parameters.AddWithValue("?", txtIntroTelefono.Text)
-
-        ucomando.Parameters.AddWithValue("?", Numero_cuenta)
-        ucomando.Parameters.AddWithValue("?", txtIntroSaldo.Text)
+        Dim icomando = New OleDbCommand("INSERT INTO tbdatos(Id, Nombre,Direccion,Telefono) VALUES ('@A','@B', '@C', '@D')", oconexion)
+        Dim ucomando = New OleDbCommand("INSERT INTO tbcuentas(Id, Saldo) VALUES ('@E','@F')", oconexion)
+        icomando.Parameters.AddWithValue("@A", id)
+        icomando.Parameters.AddWithValue("@B", txtIntroNombre)
+        icomando.Parameters.AddWithValue("@C", txtIntroDireccion)
+        icomando.Parameters.AddWithValue("@D", txtIntroTelefono)
+        ucomando.Parameters.AddWithValue("@E", id)
+        ucomando.Parameters.AddWithValue("@F", txtIntroSaldo)
         oconexion.Open()
         icomando.ExecuteNonQuery()
         ucomando.ExecuteNonQuery()
         oconexion.Close()
-
-        txtIntroNombre.Clear()
-        txtIntroSaldo.Clear()
-        txtIntroDireccion.Clear()
-        txtIntroTelefono.Clear()
-        Numero_cuenta = Nothing
     End Sub
 End Class

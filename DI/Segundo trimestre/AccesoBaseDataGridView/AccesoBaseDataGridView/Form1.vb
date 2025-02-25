@@ -13,6 +13,7 @@ Public Class Form1
             oconexion.Open()
             oadapter.Fill(odataset, "tbAuxiliar")
             oconexion.Close()
+            MsgBox("Conexion realizada con exito")
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
@@ -38,10 +39,15 @@ Public Class Form1
     End Sub
 
     Private Sub btnRecorrer_Click(sender As Object, e As EventArgs) Handles btnRecorrer.Click
+        'Se asegura que tenga contenido el DataGridView1
         If DataGridView1.Rows.Count > 0 Then
+            'Recorre todas las filas
             For Each Fila As DataGridViewRow In DataGridView1.Rows
+                'Comprueba si la fila tiene contenido
                 If Not Fila Is Nothing Then
+                    'Recorre todas las celdas de dicha fila
                     For Each Celda As DataGridViewCell In Fila.Cells
+                        'Se asegur de que tenga contenido la celda al imprimirla
                         If Not Celda.Value Is Nothing Then
                             MsgBox(Celda.Value)
                         End If
@@ -66,24 +72,45 @@ Public Class Form1
 
     Private Sub btnInsertDDBB_Click(sender As Object, e As EventArgs) Handles btnInsertDDBB.Click
         ofila = odataset.Tables("tbAuxiliar").NewRow
+        Dim enc As Boolean = False
 
-        If txtNombre.Text.Length > 0 And txtDireccion.Text.Length > 0 And txtTelefono.Text.Length > 0 Then
-            ofila("nombre") = txtNombre.Text
-            ofila("direccion") = txtDireccion.Text
-            ofila("telefono") = txtTelefono.Text
+        If txtNombre.Text.Length > 0 And txtDireccion.Text.Length > 0 And txtTelefono.Text.Length > 0 And IsNumeric(txtTelefono.Text) Then
+            ' Verificar si el nombre ya existe en la tabla
+            For Each fila As DataRow In odataset.Tables("tbAuxiliar").Rows
+                If fila("Nombre").ToString() = txtNombre.Text Then
+                    MessageBox.Show("El nombre ya existe, por favor pruebe con otro", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    enc = True
+                    Exit For
+                End If
+            Next
 
-            odataset.Tables("tbAuxiliar").Rows.Add(ofila)
+            ' Solo insertar si no hay duplicados
+            If Not enc Then
+                ofila = odataset.Tables("tbAuxiliar").NewRow
+                ofila("nombre") = txtNombre.Text
+                ofila("direccion") = txtDireccion.Text
+                ofila("telefono") = txtTelefono.Text
 
-            oconexion.Open()
-            oadapter.Update(odataset, "tbAuxiliar")
-            oconexion.Close()
+                odataset.Tables("tbAuxiliar").Rows.Add(ofila)
+
+                ' Intentar actualizar la base de datos
+                Try
+                    oconexion.Open()
+                    oadapter.Update(odataset, "tbAuxiliar")
+                    oconexion.Close()
+
+                    txtNombre.Clear()
+                    txtDireccion.Clear()
+                    txtTelefono.Clear()
+
+                    MessageBox.Show("Se ha dado de alta correctamente la tabaquera", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                Catch ex As Exception
+                    MessageBox.Show("Error No se ha podido dar de alta la tabaquera: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
+            End If
         Else
-            MsgBox("No puede haber un campo vacio")
+            MsgBox("No puede haber un campo vacio y Telefono debe de ser un número")
         End If
-
-        txtNombre.Clear()
-        txtDireccion.Clear()
-        txtTelefono.Clear()
-
     End Sub
 End Class

@@ -63,7 +63,7 @@ Public Class Form1
                     Me.txtNumCigarrillos.Text = filaencontrada(i).Item("Nº_Cigarrillos")
                     Me.txtNicotina.Text = filaencontrada(i).Item("Nicotina")
                     Me.txtPrecio.Text = filaencontrada(i).Item("Precio")
-                    precioCajetilla = CDbl(filaencontrada(i).Item("Precio"))
+                    precioCajetilla = CDbl(filaencontrada(i).Item("Precio")) 'CInt(4.5)
                     marcaCajetilla = filaencontrada(i).Item("nombre_marca")
 
                 Next i
@@ -87,6 +87,7 @@ Public Class Form1
             precio_venta = cantidad * Convert.ToDouble(precioCajetilla)
         End If
 
+        'Insertar en base de datos
         ofila = odataset.Tables("tbpedidos").NewRow
         ofila("Nombre_marca") = marcaCajetilla
         ofila("cantidad") = cantidad
@@ -124,9 +125,6 @@ Public Class Form1
         For Each fila In odataset.Tables("tbpedidos").Rows
             If fila("Id_pedido").ToString = LBoxPedidos.SelectedItem.ToString Then
                 fila.Delete()
-                oconexion.Open()
-                pedidosAdapter.Update(odataset, "tbpedidos")
-                oconexion.Close()
                 Exit For
             End If
         Next
@@ -223,18 +221,17 @@ Public Class Form1
     End Sub
 
     Private Function SumarPedidos() As Double
-        Dim total As Double
+        Dim total As Double = 0
 
         Try
-            oconexion.Open()
-            Dim consulta As String = "SELECT SUM(total) AS Total FROM tbpedidos"
-            Dim comando As New OleDbCommand(consulta, oconexion)
+            ' Recorre las filas de la tabla y suma la columna "total"
+            For Each fila As DataRow In odataset.Tables("tbpedidos").Rows
+                If Not IsDBNull(fila("total")) Then
+                    total += Convert.ToDouble(fila("total"))
+                End If
+            Next
 
-            Dim resultado As Object = comando.ExecuteScalar()
-            If Not IsDBNull(resultado) Then
-                total = Convert.ToDouble(resultado)
-            End If
-            oconexion.Close()
+
         Catch ex As Exception
             MsgBox("Error al calcular la suma: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
